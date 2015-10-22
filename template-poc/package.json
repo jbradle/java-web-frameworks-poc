@@ -1,0 +1,10 @@
+{
+  "name": "poc-templates",
+  "version": "10.3.1",
+  "description": "Java Web Frameworks POC project frond-end templates",
+  "author": "Jiri Bradle <bradle.jiri@gmail.com>",
+  "devDependencies": {
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.0"
+  }
+}
