@@ -80,78 +80,43 @@
         </div>
 
         <div class="col-md-8">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Docs</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Spring Web MVC</td>
-                    <td>Web Layer</td>
-                    <td>
-                        <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html">
-                            <i class="fa fa-arrow-right fa-2x"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="detail.html" title="Detail">
-                            <i class="fa fa-folder-open fa-2x"></i>
-                        </a>
-                        <a href="#" title="Edit">
-                            <i class="fa fa-edit fa-2x"></i>
-                        </a>
-                        <a href="#" title="Remove">
-                            <i class="fa fa-remove fa-2x"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Hibernate</td>
-                    <td>Data Layer</td>
-                    <td>
-                        <a href="http://hibernate.org/orm/documentation/5.0/">
-                            <i class="fa fa-arrow-right fa-2x"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="detail.html" title="Detail">
-                            <i class="fa fa-folder-open fa-2x"></i>
-                        </a>
-                        <a href="#" title="Edit">
-                            <i class="fa fa-edit fa-2x"></i>
-                        </a>
-                        <a href="#" title="Remove">
-                            <i class="fa fa-remove fa-2x"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Spring beans</td>
-                    <td>Service Layer</td>
-                    <td>
-                        <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html">
-                            <i class="fa fa-arrow-right fa-2x"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="detail.html" title="Detail">
-                            <i class="fa fa-folder-open fa-2x"></i>
-                        </a>
-                        <a href="#" title="Edit">
-                            <i class="fa fa-edit fa-2x"></i>
-                        </a>
-                        <a href="#" title="Remove">
-                            <i class="fa fa-remove fa-2x"></i>
-                        </a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="well">
+                <h4>Add New Framework</h4>
+                <form name="addFramework" id="frameworkForm" novalidate="">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="description">Description:</label>
+                            <textarea class="form-control" rows="3" id="description"></textarea>
+                            <div class="help-block"></div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="docLink">Documentation Link:</label>
+                            <input type="text" class="form-control" id="docLink">
+                            <div class="help-block"></div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <label for="categorySelect">Category</label>
+                        <select class="form-control" id="categorySelect">
+                            <option>Web Layer</option>
+                            <option>Service Layer</option>
+                            <option>Data Layer</option>
+                        </select>
+                    </div>
+                    <div id="success"></div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+                <!-- /.input-group -->
+            </div>
         </div>
     </div>
 

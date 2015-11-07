@@ -8,9 +8,6 @@
     <artifactId>java-web-frameworks-poc</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
-    <modules>
-        <module>hibernate-repo-poc</module>
-    </modules>
 
     <name>Java Web Frameworks POC</name>
     <description>Parent pom for all Java Web Frameworks POC project</description>
@@ -19,28 +16,31 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>4.12</junit.version>
         <log4j.version>1.2.17</log4j.version>
+        <slf4j.version>1.7.12</slf4j.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <!-- Logging -->
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.version}</version>
-                <type>jar</type>
-                <scope>compile</scope>
-            </dependency>
 
-            <!-- Test support -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <dependencies>
+        <!-- Logging -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- Test support -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
