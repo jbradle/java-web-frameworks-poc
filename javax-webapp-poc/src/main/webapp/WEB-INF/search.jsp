@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 
 <head>
@@ -12,11 +13,11 @@
     <title>Java Web Framework POC</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="resources/css/bootstrap.css" rel="stylesheet">
+    <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
-    <link href="css/logo-nav.css" rel="stylesheet">
+    <link href="resources/css/logo-nav.css" rel="stylesheet">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -43,17 +44,17 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img src="img/navbar-logo.jpg" alt="">
+                <img src="resources/img/navbar-logo.jpg" alt="">
             </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="about.html">About</a>
+                    <a href="frameworks">About</a>
                 </li>
                 <li>
-                    <a href="index.html">Example</a>
+                    <a href="frameworks?action=list">Example</a>
                 </li>
             </ul>
         </div>
@@ -73,15 +74,16 @@
         </div>
         <div class="col-md-3">
             <div class="list-group">
-                <a href="index.html" class="list-group-item">Framework List</a>
-                <a href="fw-add.html" class="list-group-item">Add Framework</a>
-                <a href="search.html" class="list-group-item active">Search</a>
+                <a href="frameworks?action=list" class="list-group-item">Framework List</a>
+                <a href="frameworks?action=add" class="list-group-item">Add Framework</a>
+                <a href="frameworks?action=search" class="list-group-item active">Search</a>
             </div>
         </div>
 
         <div class="col-md-8">
             <div class="well">
-                <form action="frameworks?action=search" method="get">
+                <form action="frameworks" method="get">
+                    <input type="text" name="action" value="search" hidden/>
                     <label for="search">Framework Search</label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="search" name="searchParam">
@@ -90,6 +92,7 @@
                         </span>
                     </div>
                 </form>
+                <!-- /.input-group -->
             </div>
             <table class="table table-hover">
                 <thead>
@@ -101,46 +104,28 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Spring Web MVC</td>
-                    <td>Web Layer</td>
-                    <td>
-                        <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html">
-                            <i class="fa fa-arrow-right fa-2x"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="detail.html" title="Detail">
-                            <i class="fa fa-folder-open fa-2x"></i>
-                        </a>
-                        <a href="#" title="Edit">
-                            <i class="fa fa-edit fa-2x"></i>
-                        </a>
-                        <a href="#" title="Remove">
-                            <i class="fa fa-remove fa-2x"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Spring beans</td>
-                    <td>Service Layer</td>
-                    <td>
-                        <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html">
-                            <i class="fa fa-arrow-right fa-2x"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="detail.html" title="Detail">
-                            <i class="fa fa-folder-open fa-2x"></i>
-                        </a>
-                        <a href="#" title="Edit">
-                            <i class="fa fa-edit fa-2x"></i>
-                        </a>
-                        <a href="#" title="Remove">
-                            <i class="fa fa-remove fa-2x"></i>
-                        </a>
-                    </td>
-                </tr>
+                <c:forEach items="${frameworks}" var="framework">
+                    <tr>
+                        <td><c:out value="${framework.name}"/></td>
+                        <td><c:out value="${framework.category}"/></td>
+                        <td>
+                            <a href="${framework.documentationLink}">
+                                <i class="fa fa-arrow-right fa-2x"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="frameworks?action=detail&id=${framework.id}" title="Detail">
+                                <i class="fa fa-folder-open fa-2x"></i>
+                            </a>
+                            <a href="frameworks?action=edit&id=${framework.id}" title="Edit">
+                                <i class="fa fa-edit fa-2x"></i>
+                            </a>
+                            <a href="frameworks?action=remove&id=${framework.id}" title="Remove">
+                                <i class="fa fa-remove fa-2x"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
