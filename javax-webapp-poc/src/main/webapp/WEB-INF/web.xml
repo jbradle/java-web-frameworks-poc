@@ -9,14 +9,6 @@
         <welcome-file>frameworks</welcome-file>
     </welcome-file-list>
 
-    <servlet>
-        <servlet-name>FrameworkServlet</servlet-name>
-        <servlet-class>cz.jbradle.poc.web.javax.servlet.FrameworkServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>FrameworkServlet</servlet-name>
-        <url-pattern>/frameworks</url-pattern>
-    </servlet-mapping>
     <listener>
         <listener-class>
             cz.jbradle.poc.web.javax.servlet.InitEmbeddedDbServletContextListener

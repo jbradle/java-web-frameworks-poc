@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +16,7 @@ import java.io.IOException;
  * <p/>
  * Created by George on 7.11.2015.
  */
+@WebServlet(name="FrameworkServlet", urlPatterns={"/frameworks"})
 public class FrameworkServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(FrameworkServlet.class);
