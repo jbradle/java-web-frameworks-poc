@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Java Web Framework POC</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../resources/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+
+    <!-- Custom CSS -->
+    <link href="../../resources/css/logo-nav.css" rel="stylesheet"/>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body>
+
+<!-- Page Content -->
+
+<div class="container">
+    <div class="row">
+        <div class="row" th:fragment="title">
+            <div class="col-md-8">
+                <h1 th:text="#{framework.title}">Example - Framework List</h1>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-3" th:fragment="menu">
+            <div class="list-group">
+                <a href="../index.html" class="list-group-item active"
+                   th:class="${active == 1} ? 'list-group-item active' : 'list-group-item '"
+                   th:text="#{framework.example.menu.list}"
+                   th:href="@{/example}">Framework List</a>
+                <a href="../add.html" class="list-group-item"
+                   th:class="${active == 2} ? 'list-group-item active' : 'list-group-item '"
+                   th:text="#{framework.example.menu.add}"
+                   th:href="@{/add}">Add Framework</a>
+                <a href="../search.html" class="list-group-item"
+                   th:class="${active == 3} ? 'list-group-item active' : 'list-group-item '"
+                   th:text="#{framework.example.menu.search}"
+                   th:href="@{/search}">Search</a>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-hover" th:fragment="table">
+                <thead>
+                <tr>
+                    <th th:text="#{framework.example.table.name}">Name</th>
+                    <th th:text="#{framework.example.table.category}">Category</th>
+                    <th th:text="#{framework.example.table.docs}">Docs</th>
+                    <th th:text="#{framework.example.table.actions}">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="framework : ${frameworks}">
+                    <td th:text="${framework.name}">Spring Web MVC</td>
+                    <td th:text="${framework.category.name}">Web Layer</td>
+                    <td>
+                        <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html"
+                           th:href="${framework.documentationLink}">
+                            <i class="fa fa-arrow-right fa-2x"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="../detail.html" title="Detail" th:href="@{/detail/{id}(id=${framework.id})}">
+                            <i class="fa fa-folder-open fa-2x"></i>
+                        </a>
+                        <a href="#" title="Edit" th:href="@{/edit/{id}(id=${framework.id})}">
+                            <i class="fa fa-edit fa-2x"></i>
+                        </a>
+                        <a href="#" title="Remove" th:href="@{/delete(id=${framework.id})}">
+                            <i class="fa fa-remove fa-2x"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-8" th:fragment="framework-edit">
+            <div class="well">
+                <h4 th:text="${title}">Add New Framework</h4>
+
+                <form name="addFramework" th:action="@{/save}" th:object="${framework}" method="post">
+                    <input type="hidden" th:field="*{id}"/>
+
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="name" th:text="#{framework.edit.name}">Name:</label>
+                            <input type="text" class="form-control" id="name" th:field="*{name}"/>
+
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="description" th:text="#{framework.edit.description}">Description:</label>
+                            <textarea class="form-control" rows="3" id="description"
+                                      th:field="*{description}"></textarea>
+
+                            <div class="help-block"></div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="docLink" th:text="#{framework.edit.docLink}">Documentation Link:</label>
+                            <input type="text" class="form-control" id="docLink" th:field="*{documentationLink}"/>
+
+                            <div class="help-block"></div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <label for="categorySelect" th:text="#{framework.edit.category}">Category:</label>
+                        <select class="form-control" id="categorySelect" th:field="*{categoryId}">
+                            <option th:each="category : ${categories}"
+                                    th:value="${category.id}"
+                                    th:text="${category.name}">Web Layer
+                            </option>
+                        </select>
+                    </div>
+                    <div id="success"></div>
+                    <button type="submit" class="btn btn-primary" th:text="#{framework.edit.button}">Save</button>
+                </form>
+                <!-- /.input-group -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="../../resources/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../resources/js/bootstrap.js"></script>
+
+</body>
+
+</html>

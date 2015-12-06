@@ -10,6 +10,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>javax-webapp-poc</module>
+        <module>spring-webapp-poc</module>
     </modules>
 
     <name>Java Web Frameworks POC</name>

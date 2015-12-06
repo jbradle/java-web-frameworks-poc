@@ -1,0 +1,48 @@
+-- noinspection SqlNoDataSourceInspectionForFile
+SET MODE Oracle;
+
+CREATE TABLE CATEGORY (
+  CATEGORY_ID NUMBER(5) PRIMARY KEY,
+  NAME        VARCHAR(255)
+);
+
+CREATE TABLE FRAMEWORK (
+  FRAMEWORK_ID NUMBER(5) PRIMARY KEY,
+  NAME         VARCHAR(255),
+  DESCRIPTION  VARCHAR(4000),
+  CATEGORY     VARCHAR(255),
+  DOC_LINK     VARCHAR(255),
+  ADDED_ON     TIMESTAMP,
+  CATEGORY_ID  NUMBER(5),
+  CONSTRAINT FK_CATEGORY_ID
+  FOREIGN KEY (CATEGORY_ID)
+  REFERENCES CATEGORY (CATEGORY_ID)
+);
+
+
+CREATE SEQUENCE SEQ_FRAMEWORK_ID INCREMENT BY 1 NOCYCLE;
+CREATE SEQUENCE SEQ_CATEGORY_ID INCREMENT BY 1 NOCYCLE;
+
+-- DATA
+INSERT INTO CATEGORY (CATEGORY_ID, NAME) VALUES (SEQ_CATEGORY_ID.nextval, 'Web Layer');
+INSERT INTO CATEGORY (CATEGORY_ID, NAME) VALUES (SEQ_CATEGORY_ID.nextval, 'Data Layer');
+INSERT INTO CATEGORY (CATEGORY_ID, NAME) VALUES (SEQ_CATEGORY_ID.nextval, 'Service Layer');
+INSERT INTO CATEGORY (CATEGORY_ID, NAME) VALUES (SEQ_CATEGORY_ID.nextval, 'Other');
+
+
+INSERT INTO FRAMEWORK (FRAMEWORK_ID, NAME, DOC_LINK, ADDED_ON, CATEGORY_ID)
+VALUES (SEQ_FRAMEWORK_ID.nextval, 'Spring Web MVC',
+        'http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html', sysdate, 1);
+
+INSERT INTO FRAMEWORK (FRAMEWORK_ID, NAME, DOC_LINK, ADDED_ON, CATEGORY_ID)
+VALUES (SEQ_FRAMEWORK_ID.nextval, 'Hibernate', 'http://hibernate.org/orm/documentation/5.0/', sysdate, 2);
+
+INSERT INTO FRAMEWORK (FRAMEWORK_ID, NAME, DOC_LINK, ADDED_ON, CATEGORY_ID)
+VALUES (SEQ_FRAMEWORK_ID.nextval, 'Spring Beans',
+        'http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html', sysdate, 3);
+
+INSERT INTO FRAMEWORK (FRAMEWORK_ID, NAME, DOC_LINK, ADDED_ON, CATEGORY_ID)
+VALUES (SEQ_FRAMEWORK_ID.nextval, 'Spring Context',
+        'http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/', sysdate, 3);
+
+

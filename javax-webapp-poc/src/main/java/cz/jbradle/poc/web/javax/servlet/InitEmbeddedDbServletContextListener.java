@@ -11,10 +11,10 @@ import java.util.Date;
 
 /**
  * Context listener to load data to db
- *
+ * <p>
  * Created by George on 8.11.2015.
  */
-public class InitEmbeddedDbServletContextListener implements ServletContextListener{
+public class InitEmbeddedDbServletContextListener implements ServletContextListener {
 
     private EntityManagerFactory entityManagerFactory =
             Persistence.createEntityManagerFactory("cz.jbradle.poc.web.javax");

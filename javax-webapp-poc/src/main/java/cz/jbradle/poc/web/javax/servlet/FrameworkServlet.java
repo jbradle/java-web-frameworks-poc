@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Add framework servlet
+ * Framework servlet
  * <p/>
  * Created by George on 7.11.2015.
  */
