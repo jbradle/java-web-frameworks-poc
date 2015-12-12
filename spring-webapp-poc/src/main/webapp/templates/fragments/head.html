@@ -7,9 +7,10 @@
     <title th:text="#{framework.title}">Java Web Framework POC</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../resources/css/bootstrap.css" rel="stylesheet" th:href="@{/resources/css/bootstrap.css}"/>
-    <link href="../../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css" th:href="@{/resources/font-awesome/css/font-awesome.min.css}"/>
+    <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/node_modules/bootstrap/dist/css/bootstrap.min.css}"/>
+    <link href="../../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css" th:href="@{/node_modules/font-awesome/css/font-awesome.min.css}"/>
 
     <!-- Custom CSS -->
     <link href="../../resources/css/logo-nav.css" rel="stylesheet" th:href="@{/resources/css/logo-nav.css}"/>
@@ -27,10 +28,12 @@
 <body>
 <div th:fragment="scripts">
     <!-- jQuery -->
-    <script src="../../resources/js/jquery.js" th:src="@{/resources/js/jquery.js}"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"
+            th:src="@{/node_modules/jquery/dist/jquery.min.js}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../resources/js/bootstrap.js" th:src="@{/resources/js/bootstrap.js}"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"
+            th:src="@{/node_modules/bootstrap/dist/js/bootstrap.min.js}"></script>
 </div>
 </body>
 </html>

@@ -23,19 +23,12 @@ import javax.sql.DataSource;
 @ComponentScan(basePackages = "cz.jbradle.poc.web.spring.app")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-    private static final String[] RESOURCES = {"img", "css", "js", "fonts", "font-awesome"};
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        for (String resource : RESOURCES) {
-            addResource(registry, resource);
-        }
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+        registry.addResourceHandler("/node_modules/**").addResourceLocations("/node_modules/");
     }
 
-    private void addResource(ResourceHandlerRegistry registry, String resource) {
-        registry.addResourceHandler("/resources/" + resource + "/**")
-                .addResourceLocations("/resources/" + resource + "/");
-    }
 
 
     @Bean

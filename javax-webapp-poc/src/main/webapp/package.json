@@ -1,12 +1,8 @@
 {
-  "name": "poc-templates",
+  "name": "javax-webapp-poc",
   "version": "1.0.0",
-  "description": "Java Web Frameworks POC project frond-end templates",
+  "description": "OC that shows usage of Spring framework base libraries for Web Application",
   "author": "Jiri Bradle <bradle.jiri@gmail.com>",
-  "devDependencies": {
-    "browser-sync": "^2.9.11",
-    "gulp": "^3.9.0"
-  },
   "dependencies": {
     "bootstrap": "^3.3.6",
     "font-awesome": "^4.5.0",

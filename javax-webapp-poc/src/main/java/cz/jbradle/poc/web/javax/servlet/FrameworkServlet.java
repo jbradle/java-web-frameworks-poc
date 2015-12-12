@@ -31,11 +31,11 @@ public class FrameworkServlet extends HttpServlet {
             if (action.compareTo("list") == 0) {
                 logger.info("Action resolved as [list]. Loading framework list.");
                 request.setAttribute("frameworks", frameworkService.getAllFrameworks());
-                request.getRequestDispatcher("/WEB-INF/list.jsp").forward(request, response);
+                request.getRequestDispatcher("/view/list.jsp").forward(request, response);
                 return;
             } else if (action.compareTo("add") == 0) {
                 logger.info("Action resolved as [add]. Forwarding to form.");
-                request.getRequestDispatcher("/WEB-INF/add.jsp").forward(request, response);
+                request.getRequestDispatcher("/view/add.jsp").forward(request, response);
                 return;
             } else if (action.compareTo("edit") == 0 || action.compareTo("detail") == 0) {
                 loadFrameworkAndSetMapping(request, response, action);
@@ -45,7 +45,7 @@ public class FrameworkServlet extends HttpServlet {
                 int id = Integer.parseInt(request.getParameter("id"));
                 frameworkService.removeFramework(id);
                 request.setAttribute("frameworks", frameworkService.getAllFrameworks());
-                request.getRequestDispatcher("/WEB-INF/list.jsp").forward(request, response);
+                request.getRequestDispatcher("/view/list.jsp").forward(request, response);
                 return;
             }else if (action.compareTo("search") == 0) {
                 logger.info("Action resolved as [search]. Loading framework list.");
@@ -55,12 +55,12 @@ public class FrameworkServlet extends HttpServlet {
                 }else {
                     request.setAttribute("frameworks", frameworkService.searchFrameworks(searchParam));
                 }
-                request.getRequestDispatcher("/WEB-INF/search.jsp").forward(request, response);
+                request.getRequestDispatcher("/view/search.jsp").forward(request, response);
                 return;
             }
         }
         logger.info("Action not resolved. Forward to about");
-        request.getRequestDispatcher("/WEB-INF/about.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/about.jsp").forward(request, response);
     }
 
     private void loadFrameworkAndSetMapping(HttpServletRequest request, HttpServletResponse response, String action)
@@ -68,7 +68,7 @@ public class FrameworkServlet extends HttpServlet {
         logger.info("Action resolved as [" + action + "]. Forwarding to detail.");
         int id = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("framework", frameworkService.getFrameworkById(id));
-        request.getRequestDispatcher("/WEB-INF/" + action + ".jsp").forward(request, response);
+        request.getRequestDispatcher("/view/" + action + ".jsp").forward(request, response);
     }
 
 
@@ -98,6 +98,6 @@ public class FrameworkServlet extends HttpServlet {
             }
         }
         request.setAttribute("frameworks", frameworkService.getAllFrameworks());
-        request.getRequestDispatcher("/WEB-INF/list.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/list.jsp").forward(request, response);
     }
 }

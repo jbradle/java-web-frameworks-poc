@@ -13,12 +13,11 @@
     <title>Java Web Framework POC</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="resources/css/bootstrap.css" rel="stylesheet">
-    <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
     <link href="resources/css/logo-nav.css" rel="stylesheet">
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,26 +73,13 @@
         </div>
         <div class="col-md-3">
             <div class="list-group">
-                <a href="frameworks?action=list" class="list-group-item">Framework List</a>
+                <a href="frameworks?action=list" class="list-group-item active">Framework List</a>
                 <a href="frameworks?action=add" class="list-group-item">Add Framework</a>
-                <a href="frameworks?action=search" class="list-group-item active">Search</a>
+                <a href="frameworks?action=search" class="list-group-item">Search</a>
             </div>
         </div>
 
         <div class="col-md-8">
-            <div class="well">
-                <form action="frameworks" method="get">
-                    <input type="text" name="action" value="search" hidden/>
-                    <label for="search">Framework Search</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="search" name="searchParam">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                        </span>
-                    </div>
-                </form>
-                <!-- /.input-group -->
-            </div>
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -145,10 +131,10 @@
 <!-- /.container -->
 
 <!-- jQuery -->
-<script src="js/jquery.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </body>
 

@@ -13,12 +13,11 @@
     <title>Java Web Framework POC</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="resources/css/bootstrap.css" rel="stylesheet">
-    <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
     <link href="resources/css/logo-nav.css" rel="stylesheet">
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -81,40 +80,41 @@
         </div>
         <div class="col-md-8">
             <div class="well">
-                <h3>${framework.name}</h3>
-
-                <div class="row">
-                    <div class="col-md-2">
-                        <h4>Added on:</h4>
+                <h4>Add New Framework</h4>
+                <form action="frameworks?action=edit&id=${framework.id}" method="post">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" value="${framework.name}">
+                            <p class="help-block"></p>
+                        </div>
                     </div>
-                    <div class="col-md-10">
-                        <p>${framework.addedOn}</p>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="description">Description:</label>
+                            <textarea class="form-control" rows="3" id="description" name="description">${framework.description}</textarea>
+                            <div class="help-block"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <h4>Category:</h4>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="docLink">Documentation Link:</label>
+                            <input type="text" class="form-control" id="docLink" name="docLink" value="${framework.documentationLink}">
+                            <div class="help-block"></div>
+                        </div>
                     </div>
-                    <div class="col-md-10">
-                        <p>${framework.category}</p>
+                    <div class="control-group form-group">
+                        <label for="categorySelect">Category</label>
+                        <select class="form-control" id="categorySelect" name="categorySelect">
+                            <option>Web Layer</option>
+                            <option>Service Layer</option>
+                            <option>Data Layer</option>
+                        </select>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <h4>Doc link:</h4>
-                    </div>
-                    <div class="col-md-10">
-                        <a href="${framework.documentationLink}">${framework.documentationLink}</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <h4>Description:</h4>
-                    </div>
-                    <div class="col-md-10">
-                        <p>${framework.description}</p>
-                    </div>
-                </div>
+                    <div id="success"></div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+                <!-- /.input-group -->
             </div>
         </div>
     </div>
@@ -133,10 +133,10 @@
 <!-- /.container -->
 
 <!-- jQuery -->
-<script src="resources/js/jquery.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="resources/js/bootstrap.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </body>
 

@@ -13,12 +13,11 @@
     <title>Java Web Framework POC</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="resources/css/bootstrap.css" rel="stylesheet">
-    <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
     <link href="resources/css/logo-nav.css" rel="stylesheet">
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -76,47 +75,58 @@
             <div class="list-group">
                 <a href="frameworks?action=list" class="list-group-item">Framework List</a>
                 <a href="frameworks?action=add" class="list-group-item">Add Framework</a>
-                <a href="frameworks?action=search" class="list-group-item">Search</a>
+                <a href="frameworks?action=search" class="list-group-item active">Search</a>
             </div>
         </div>
+
         <div class="col-md-8">
             <div class="well">
-                <h4>Add New Framework</h4>
-                <form action="frameworks?action=edit&id=${framework.id}" method="post">
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="name" name="name" value="${framework.name}">
-                            <p class="help-block"></p>
-                        </div>
+                <form action="frameworks" method="get">
+                    <input type="text" name="action" value="search" hidden/>
+                    <label for="search">Framework Search</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="search" name="searchParam">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                        </span>
                     </div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label for="description">Description:</label>
-                            <textarea class="form-control" rows="3" id="description" name="description">${framework.description}</textarea>
-                            <div class="help-block"></div>
-                        </div>
-                    </div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label for="docLink">Documentation Link:</label>
-                            <input type="text" class="form-control" id="docLink" name="docLink" value="${framework.documentationLink}">
-                            <div class="help-block"></div>
-                        </div>
-                    </div>
-                    <div class="control-group form-group">
-                        <label for="categorySelect">Category</label>
-                        <select class="form-control" id="categorySelect" name="categorySelect">
-                            <option>Web Layer</option>
-                            <option>Service Layer</option>
-                            <option>Data Layer</option>
-                        </select>
-                    </div>
-                    <div id="success"></div>
-                    <button type="submit" class="btn btn-primary">Save</button>
                 </form>
                 <!-- /.input-group -->
             </div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Docs</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${frameworks}" var="framework">
+                    <tr>
+                        <td><c:out value="${framework.name}"/></td>
+                        <td><c:out value="${framework.category}"/></td>
+                        <td>
+                            <a href="${framework.documentationLink}">
+                                <i class="fa fa-arrow-right fa-2x"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="frameworks?action=detail&id=${framework.id}" title="Detail">
+                                <i class="fa fa-folder-open fa-2x"></i>
+                            </a>
+                            <a href="frameworks?action=edit&id=${framework.id}" title="Edit">
+                                <i class="fa fa-edit fa-2x"></i>
+                            </a>
+                            <a href="frameworks?action=remove&id=${framework.id}" title="Remove">
+                                <i class="fa fa-remove fa-2x"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -134,10 +144,10 @@
 <!-- /.container -->
 
 <!-- jQuery -->
-<script src="resources/js/jquery.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="resources/js/bootstrap.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </body>
 

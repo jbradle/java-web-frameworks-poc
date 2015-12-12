@@ -3,18 +3,13 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="fragments/head :: head">
-
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Java Web Framework POC</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../resources/css/bootstrap.css" rel="stylesheet"/>
-    <link href="../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Custom CSS -->
     <link href="../resources/css/logo-nav.css" rel="stylesheet"/>
@@ -26,7 +21,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body>
@@ -140,10 +134,10 @@
 
 <div th:replace="fragments/head :: scripts">
     <!-- jQuery -->
-    <script src="../resources/js/jquery.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../resources/js/bootstrap.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </div>
 </body>
 
