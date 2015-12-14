@@ -5,6 +5,7 @@ import cz.jbradle.poc.web.javax.model.Framework;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
@@ -14,10 +15,12 @@ import java.util.List;
  * Created by George on 7.11.2015.
  */
 @Stateless
+@Transactional
 public class FrameworkService implements FrameworkServiceRemote{
 
     @EJB
     private FrameworkDaoRemote frameworkDao;
+
 
     public List<Framework> getAllFrameworks() {
         return frameworkDao.getAllFrameworks();

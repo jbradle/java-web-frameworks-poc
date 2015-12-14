@@ -1,6 +1,7 @@
 package cz.jbradle.poc.web.javax.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,9 +11,12 @@ import java.util.Date;
  */
 @Entity
 @Table( name = "FRAMEWORK" )
-public class Framework {
+public class Framework implements Serializable{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FRAMEWORK_ID_GENERATOR")
+    @SequenceGenerator(name = "FRAMEWORK_ID_GENERATOR", sequenceName = "SEQ_FRAMEWORK_ID")
+    @Column(name = "FRAMEWORK_ID", unique = true, nullable = false)
     private int id;
 
     @Column(name = "NAME")
