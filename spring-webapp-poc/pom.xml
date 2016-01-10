@@ -124,7 +124,6 @@
             <scope>compile</scope>
         </dependency>
         <!-- END OF OPTIONAL DEPENDENCIES -->
-
     </dependencies>
 
     <build>

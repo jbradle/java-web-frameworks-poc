@@ -1,4 +1,4 @@
-package cz.jbradle.poc.web.spring.app.service;
+package cz.jbradle.poc.web.spring.app;
 
 import cz.jbradle.poc.web.spring.model.Category;
 import cz.jbradle.poc.web.spring.model.Framework;
@@ -8,10 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Implementation of framework service
@@ -26,7 +24,6 @@ class FrameworkServiceImpl implements FrameworkService {
 
     @Autowired
     private CategoryRepository categoryRepository;
-
 
     @Override
     @Transactional(readOnly = true)

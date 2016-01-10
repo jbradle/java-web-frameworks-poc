@@ -1,4 +1,4 @@
-package cz.jbradle.poc.web.spring.app.service;
+package cz.jbradle.poc.web.spring.app;
 
 import cz.jbradle.poc.web.spring.model.Category;
 import cz.jbradle.poc.web.spring.model.Framework;
