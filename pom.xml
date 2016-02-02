@@ -11,6 +11,7 @@
     <modules>
         <module>javax-webapp-poc</module>
         <module>spring-webapp-poc</module>
+        <module>examples</module>
     </modules>
 
     <name>Java Web Frameworks POC</name>
