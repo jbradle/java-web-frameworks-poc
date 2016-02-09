@@ -34,8 +34,13 @@ public class AppTest {
 		repository.save(entity);
 
 		List<ExampleEntity> dbEntities = repository.findAll();
-		Assert.assertTrue(dbEntities.size() == 1);
 
+		Assert.assertTrue(dbEntities.size() == 1);
+		System.out.println(Arrays.toString(dbEntities.toArray()));
+
+		dbEntities = repository.findByName("Example");
+
+		Assert.assertTrue(dbEntities.size() == 1);
 		System.out.println(Arrays.toString(dbEntities.toArray()));
 	}
 
