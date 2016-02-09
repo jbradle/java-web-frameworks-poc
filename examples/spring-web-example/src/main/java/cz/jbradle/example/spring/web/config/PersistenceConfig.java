@@ -35,7 +35,7 @@ class PersistenceConfig {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         factory.setDataSource(dataSource);
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("cz.jbradle.poc.web.spring.model");
+        factory.setPackagesToScan("cz.jbradle.example.spring.web.model");
         factory.afterPropertiesSet();
         factory.setLoadTimeWeaver(new InstrumentationLoadTimeWeaver());
         return factory;
