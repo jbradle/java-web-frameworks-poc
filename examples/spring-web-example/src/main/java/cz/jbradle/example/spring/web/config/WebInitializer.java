@@ -23,5 +23,4 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[]{};
     }
-
 }

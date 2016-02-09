@@ -12,7 +12,6 @@ import java.util.List;
  * <p>
  * Created by George on 5.12.2015.
  */
-@Repository
 public interface FrameworkRepository extends JpaRepository<Framework, Integer> {
 
     List<Framework> findByNameContainingIgnoreCaseOrderByAddedOn(String searchPattern);
