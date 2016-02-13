@@ -1,6 +1,5 @@
-package cz.jbradle.example.spring.web;
+package cz.jbradle.example.spring.web.config;
 
-import cz.jbradle.example.spring.web.config.AppConfig;
 import cz.jbradle.example.spring.web.model.ExampleEntity;
 import cz.jbradle.example.spring.web.persistence.ExampleRepository;
 import org.junit.Assert;
@@ -30,15 +29,15 @@ public class AppTest {
 	@Transactional
 	public void repositoryTest(){
 		ExampleEntity entity = new ExampleEntity();
-		entity.setName("Example");
+		entity.setValue("Example");
 		repository.save(entity);
 
-		List<ExampleEntity> dbEntities = repository.findAll();
+		List<ExampleEntity> dbEntities = repository.findByValue("Example");
 
 		Assert.assertTrue(dbEntities.size() == 1);
 		System.out.println(Arrays.toString(dbEntities.toArray()));
 
-		dbEntities = repository.findByName("Example");
+		dbEntities = repository.findByValueAnnotation("Example");
 
 		Assert.assertTrue(dbEntities.size() == 1);
 		System.out.println(Arrays.toString(dbEntities.toArray()));

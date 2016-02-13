@@ -15,7 +15,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @Import({PersistenceConfig.class})
-public class AppConfig {
+class AppConfig {
 
     @Bean
     public DataSource dataSource() {
