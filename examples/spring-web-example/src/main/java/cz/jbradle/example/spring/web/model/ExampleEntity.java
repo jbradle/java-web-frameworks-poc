@@ -12,36 +12,37 @@ import javax.persistence.Table;
 @Table(name = "EXAMPLE_ENTITY")
 public class ExampleEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_GENERATOR")
-	@SequenceGenerator(name = "ID_GENERATOR", sequenceName = "SEQ_ID")
-	@Column(name = "ID", unique = true, nullable = false)
-	private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "ID_GENERATOR")
+    @SequenceGenerator(name = "ID_GENERATOR", sequenceName = "SEQ_ID")
+    @Column(name = "ID", unique = true, nullable = false)
+    private Integer id;
 
-	@Column(name = "NAME")
-	private String name;
+    @Column(name = "VALUE")
+    private String value;
 
-	public Integer getId() {
-		return id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getValue() {
+        return value;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setValue(String name) {
+        this.value = name;
+    }
 
-	@Override
-	public String toString() {
-		return "ExampleEntity{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "ExampleEntity{" +
+                "id=" + id +
+                ", value='" + value + '\'' +
+                '}';
+    }
 }
