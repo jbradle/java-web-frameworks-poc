@@ -1,19 +1,18 @@
 package cz.jbradle.example.spring.web.persistence;
 
 import cz.jbradle.example.spring.web.model.ExampleEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ExampleRepository extends Repository<ExampleEntity, Integer> {
+public interface ExampleRepository
+        extends JpaRepository<ExampleEntity, Integer> {
 
-	void save(ExampleEntity exampleEntity);
+    List<ExampleEntity> findByValue(String value);
 
-	List<ExampleEntity> findByValue(String name);
-
-	@Query("select e from ExampleEntity e where e.value = :value")
-	List<ExampleEntity> findByValueAnnotation(@Param("value") String value);
-
+    @Query("select e from ExampleEntity e where e.value = :value")
+    List<ExampleEntity> findByQuery(@Param("value") String value);
 }
+
