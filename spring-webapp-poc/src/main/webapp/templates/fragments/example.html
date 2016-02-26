@@ -43,7 +43,7 @@
                 <a href="../index.html" class="list-group-item active"
                    th:class="${active == 1} ? 'list-group-item active' : 'list-group-item '"
                    th:text="#{framework.example.menu.list}"
-                   th:href="@{/example}">Framework List</a>
+                   th:href="@{/}">Framework List</a>
                 <a href="../add.html" class="list-group-item"
                    th:class="${active == 2} ? 'list-group-item active' : 'list-group-item '"
                    th:text="#{framework.example.menu.add}"
@@ -68,7 +68,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <th:block></th:block>
                 <tr th:each="framework : ${frameworks}">
                     <td th:text="${framework.name}">Spring Web MVC</td>
                     <td th:text="${framework.category.name}">Web Layer</td>

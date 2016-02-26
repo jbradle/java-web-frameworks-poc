@@ -17,6 +17,7 @@ import java.util.List;
  * Created by George on 5.12.2015.
  */
 @Service
+@Transactional(readOnly = true)
 class FrameworkServiceImpl implements FrameworkService {
 
     @Autowired
@@ -26,13 +27,11 @@ class FrameworkServiceImpl implements FrameworkService {
     private CategoryRepository categoryRepository;
 
     @Override
-    @Transactional(readOnly = true)
     public List<Framework> getAllFrameworks() {
         return frameworkRepository.findAllFetchCategoryOrderByAddedOn();
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Framework getFrameworkById(int id) {
         return frameworkRepository.findOne(id);
     }
@@ -63,7 +62,6 @@ class FrameworkServiceImpl implements FrameworkService {
 
 
     @Override
-    @Transactional(readOnly = true)
     public List<Framework> searchFrameworks(String searchParam) {
         if (searchParam != null) {
             return frameworkRepository.findByNameContainingIgnoreCaseOrderByAddedOn(searchParam);
@@ -72,7 +70,6 @@ class FrameworkServiceImpl implements FrameworkService {
     }
 
     @Override
-    @Transactional(readOnly = true)
     public List<Category> getAllCategoryNames() {
         return categoryRepository.findAll();
     }

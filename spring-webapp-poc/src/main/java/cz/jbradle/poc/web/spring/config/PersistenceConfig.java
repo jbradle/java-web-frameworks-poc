@@ -13,7 +13,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "cz.jbradle.example.spring.web.persistence")
+@EnableJpaRepositories(basePackages = "cz.jbradle.poc.web.spring.persistence")
 class PersistenceConfig {
 
     @Bean

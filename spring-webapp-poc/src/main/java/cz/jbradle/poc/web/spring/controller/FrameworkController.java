@@ -20,11 +20,6 @@ class FrameworkController {
     private FrameworkService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index() {
-        return "about";
-    }
-
-    @RequestMapping(value = "/example", method = RequestMethod.GET)
     public String about(ModelMap modelMap) {
         modelMap.addAttribute("frameworks", service.getAllFrameworks());
         return "index";
@@ -35,6 +30,12 @@ class FrameworkController {
         modelMap.addAttribute("framework", new Framework());
         modelMap.addAttribute("categories", service.getAllCategoryNames());
         return "add";
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String addFramework(@ModelAttribute("framework") Framework framework) {
+        service.saveFramework(framework);
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
@@ -59,13 +60,8 @@ class FrameworkController {
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String delete(@RequestParam("id") int id) {
         service.removeFramework(id);
-        return "redirect:/example";
+        return "redirect:/";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String addFramework(@ModelAttribute("framework") Framework framework) {
-        service.saveFramework(framework);
-        return "redirect:/example";
-    }
 
 }
