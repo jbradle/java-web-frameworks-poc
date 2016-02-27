@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 class AppConfig extends WebMvcConfigurerAdapter {
 
     @Bean
-    public MapperFacade mapperFacade(){
+    public MapperFacade mapperFacade() {
         return new ConfigurableMapper();
     }
 

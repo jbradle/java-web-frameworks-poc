@@ -10,7 +10,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 /**
  * Thymeleaf configuration class
- * <p/>
+ * <p>
  * Created by George on 5.12.2015.
  */
 @Configuration
@@ -50,7 +50,7 @@ class ThymeleafConfig {
     }
 
     @Bean(name = "messageSource")
-    public MessageSource getResourceBundleMessageSource(){
+    public MessageSource getResourceBundleMessageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasename("messages/messages");
         messageSource.setDefaultEncoding("UTF-8");

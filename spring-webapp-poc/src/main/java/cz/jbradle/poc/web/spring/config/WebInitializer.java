@@ -4,7 +4,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 /**
  * Web initializer
- * <p/>
+ * <p>
  * Created by George on 5.12.2015.
  */
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

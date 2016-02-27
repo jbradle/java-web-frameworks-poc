@@ -91,7 +91,7 @@ public class Framework {
     private int categoryId;
 
     public int getCategoryId() {
-        if (category != null){
+        if (category != null) {
             return category.getId();
         }
         return categoryId;
