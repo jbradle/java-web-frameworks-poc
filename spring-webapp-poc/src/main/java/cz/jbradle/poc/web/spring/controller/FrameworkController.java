@@ -1,12 +1,11 @@
 package cz.jbradle.poc.web.spring.controller;
 
 import cz.jbradle.poc.web.spring.app.FrameworkService;
-import cz.jbradle.poc.web.spring.model.Framework;
+import cz.jbradle.poc.web.spring.model.FrameworkDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Frameworks controller
@@ -27,13 +26,13 @@ class FrameworkController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String showAddFramework(ModelMap modelMap) {
-        modelMap.addAttribute("framework", new Framework());
+        modelMap.addAttribute("framework", new FrameworkDTO());
         modelMap.addAttribute("categories", service.getAllCategoryNames());
         return "add";
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String addFramework(@ModelAttribute("framework") Framework framework) {
+    public String addFramework(@ModelAttribute("framework") FrameworkDTO framework) {
         service.saveFramework(framework);
         return "redirect:/";
     }

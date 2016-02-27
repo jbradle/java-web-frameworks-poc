@@ -22,6 +22,7 @@
         <thymeleaf.version>2.1.4.RELEASE</thymeleaf.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <spring-data.version>1.9.4.RELEASE</spring-data.version>
+        <orica.version>1.4.6</orica.version>
         <slf4j.version>1.7.13</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
         <hibernate.version>5.0.4.Final</hibernate.version>
@@ -53,6 +54,13 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
             <version>${spring-data.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+            <version>${orica.version}</version>
         </dependency>
 
 

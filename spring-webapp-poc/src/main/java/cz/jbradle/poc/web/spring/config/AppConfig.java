@@ -1,5 +1,7 @@
 package cz.jbradle.poc.web.spring.config;
 
+import ma.glasnost.orika.MapperFacade;
+import ma.glasnost.orika.impl.ConfigurableMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +23,11 @@ import javax.sql.DataSource;
 class AppConfig extends WebMvcConfigurerAdapter {
 
     @Bean
+    public MapperFacade mapperFacade(){
+        return new ConfigurableMapper();
+    }
+
+    @Bean
     public DataSource dataSource() {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         return builder
@@ -28,5 +35,4 @@ class AppConfig extends WebMvcConfigurerAdapter {
                 .addScript("sql/create-db.sql")
                 .build();
     }
-
 }

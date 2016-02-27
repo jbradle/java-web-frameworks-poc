@@ -1,9 +1,12 @@
 package cz.jbradle.poc.web.spring.app;
 
-import cz.jbradle.poc.web.spring.model.Category;
+
+import cz.jbradle.poc.web.spring.model.CategoryDTO;
 import cz.jbradle.poc.web.spring.model.Framework;
+import cz.jbradle.poc.web.spring.model.FrameworkDTO;
 import cz.jbradle.poc.web.spring.persistence.CategoryRepository;
 import cz.jbradle.poc.web.spring.persistence.FrameworkRepository;
+import ma.glasnost.orika.MapperFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +20,6 @@ import java.util.List;
  * Created by George on 5.12.2015.
  */
 @Service
-@Transactional(readOnly = true)
 class FrameworkServiceImpl implements FrameworkService {
 
     @Autowired
@@ -26,14 +28,17 @@ class FrameworkServiceImpl implements FrameworkService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private MapperFacade mapper;
+
     @Override
-    public List<Framework> getAllFrameworks() {
-        return frameworkRepository.findAllFetchCategoryOrderByAddedOn();
+    public List<FrameworkDTO> getAllFrameworks() {
+        return mapper.mapAsList(frameworkRepository.findAllFetchCategoryOrderByAddedOn(), FrameworkDTO.class);
     }
 
     @Override
-    public Framework getFrameworkById(int id) {
-        return frameworkRepository.findOne(id);
+    public FrameworkDTO getFrameworkById(int id) {
+        return mapper.map(frameworkRepository.findOne(id), FrameworkDTO.class);
     }
 
 
@@ -45,7 +50,7 @@ class FrameworkServiceImpl implements FrameworkService {
 
     @Override
     @Transactional
-    public void saveFramework(Framework frameworkWithChanges) {
+    public void saveFramework(FrameworkDTO frameworkWithChanges) {
         Framework framework;
         if (frameworkWithChanges.getId() == null) {
             framework = new Framework();
@@ -62,15 +67,15 @@ class FrameworkServiceImpl implements FrameworkService {
 
 
     @Override
-    public List<Framework> searchFrameworks(String searchParam) {
+    public List<FrameworkDTO> searchFrameworks(String searchParam) {
         if (searchParam != null) {
-            return frameworkRepository.findByNameContainingIgnoreCaseOrderByAddedOn(searchParam);
+            return mapper.mapAsList(frameworkRepository.findByNameContainingIgnoreCaseOrderByAddedOn(searchParam), FrameworkDTO.class);
         }
-        return frameworkRepository.findAllFetchCategoryOrderByAddedOn();
+        return mapper.mapAsList(frameworkRepository.findAllFetchCategoryOrderByAddedOn(), FrameworkDTO.class);
     }
 
     @Override
-    public List<Category> getAllCategoryNames() {
-        return categoryRepository.findAll();
+    public List<CategoryDTO> getAllCategoryNames() {
+        return mapper.mapAsList(categoryRepository.findAll(), CategoryDTO.class);
     }
 }

@@ -1,9 +1,8 @@
 package cz.jbradle.poc.web.spring.app;
 
-import cz.jbradle.poc.web.spring.model.Category;
-import cz.jbradle.poc.web.spring.model.Framework;
+import cz.jbradle.poc.web.spring.model.CategoryDTO;
+import cz.jbradle.poc.web.spring.model.FrameworkDTO;
 
-import java.awt.*;
 import java.util.List;
 
 /**
@@ -13,15 +12,15 @@ import java.util.List;
  */
 public interface FrameworkService {
 
-    List<Framework> getAllFrameworks();
+    List<FrameworkDTO> getAllFrameworks();
 
-    Framework getFrameworkById(int id);
+    FrameworkDTO getFrameworkById(int id);
 
     void removeFramework(int id);
 
-    void saveFramework(Framework framework);
+    void saveFramework(FrameworkDTO framework);
 
-    List<Framework> searchFrameworks(String searchParam);
+    List<FrameworkDTO> searchFrameworks(String searchParam);
 
-    List<Category> getAllCategoryNames();
+    List<CategoryDTO> getAllCategoryNames();
 }
