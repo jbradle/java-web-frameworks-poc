@@ -31,7 +31,7 @@ public class Framework {
     @Column(name = "ADDED_ON")
     private Date addedOn;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 

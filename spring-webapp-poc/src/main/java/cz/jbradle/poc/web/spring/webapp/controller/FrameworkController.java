@@ -1,4 +1,4 @@
-package cz.jbradle.poc.web.spring.controller;
+package cz.jbradle.poc.web.spring.webapp.controller;
 
 import cz.jbradle.poc.web.spring.app.service.FrameworkService;
 import cz.jbradle.poc.web.spring.app.model.FrameworkDTO;

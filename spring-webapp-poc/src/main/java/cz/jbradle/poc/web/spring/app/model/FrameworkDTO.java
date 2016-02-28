@@ -13,6 +13,7 @@ public class FrameworkDTO {
     private String name;
     private String description;
     private String documentationLink;
+    private Date addedOn;
     private CategoryDTO category;
     private int categoryId;
 
@@ -49,6 +50,14 @@ public class FrameworkDTO {
         this.documentationLink = documentationLink;
     }
 
+    public Date getAddedOn() {
+        return addedOn;
+    }
+
+    public void setAddedOn(Date addedOn) {
+        this.addedOn = addedOn;
+    }
+
     public CategoryDTO getCategory() {
         return category;
     }
@@ -72,6 +81,7 @@ public class FrameworkDTO {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", documentationLink='" + documentationLink + '\'' +
+                ", addedOn=" + addedOn +
                 ", category=" + category +
                 '}';
     }
@@ -89,6 +99,7 @@ public class FrameworkDTO {
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
         if (documentationLink != null ? !documentationLink.equals(that.documentationLink) : that.documentationLink != null)
             return false;
+        if (addedOn != null ? !addedOn.equals(that.addedOn) : that.addedOn != null) return false;
         return !(category != null ? !category.equals(that.category) : that.category != null);
 
     }
@@ -99,6 +110,7 @@ public class FrameworkDTO {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (documentationLink != null ? documentationLink.hashCode() : 0);
+        result = 31 * result + (addedOn != null ? addedOn.hashCode() : 0);
         result = 31 * result + (category != null ? category.hashCode() : 0);
         result = 31 * result + categoryId;
         return result;

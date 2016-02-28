@@ -20,6 +20,7 @@ import java.util.List;
  * Created by George on 5.12.2015.
  */
 @Service
+@Transactional(readOnly = true)
 class FrameworkServiceImpl implements FrameworkService {
 
     @Autowired
@@ -40,7 +41,6 @@ class FrameworkServiceImpl implements FrameworkService {
     public FrameworkDTO getFrameworkById(int id) {
         return mapper.map(frameworkRepository.findOne(id), FrameworkDTO.class);
     }
-
 
     @Override
     @Transactional

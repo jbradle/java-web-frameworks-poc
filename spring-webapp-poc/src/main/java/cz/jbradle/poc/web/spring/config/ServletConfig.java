@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 @Configuration
 @Import({ThymeleafConfig.class})
-@ComponentScan(basePackages = "cz.jbradle.poc.web.spring.controller")
+@ComponentScan(basePackages = "cz.jbradle.poc.web.spring.webapp.controller")
 class ServletConfig extends WebMvcConfigurerAdapter {
 
     @Override

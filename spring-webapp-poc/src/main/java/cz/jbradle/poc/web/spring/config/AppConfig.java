@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -18,9 +18,10 @@ import javax.sql.DataSource;
  * Created by George on 5.12.2015.
  */
 @Configuration
+@EnableTransactionManagement
 @Import({PersistenceConfig.class})
 @ComponentScan(basePackages = "cz.jbradle.poc.web.spring.app")
-class AppConfig extends WebMvcConfigurerAdapter {
+class AppConfig {
 
     @Bean
     public MapperFacade mapperFacade() {
