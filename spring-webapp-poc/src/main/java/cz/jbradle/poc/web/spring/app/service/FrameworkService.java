@@ -22,5 +22,5 @@ public interface FrameworkService {
 
     List<FrameworkDTO> searchFrameworks(String searchParam);
 
-    List<CategoryDTO> getAllCategoryNames();
+    List<CategoryDTO> getAllCategories();
 }

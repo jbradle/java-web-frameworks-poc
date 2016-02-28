@@ -75,7 +75,7 @@ class FrameworkServiceImpl implements FrameworkService {
     }
 
     @Override
-    public List<CategoryDTO> getAllCategoryNames() {
+    public List<CategoryDTO> getAllCategories() {
         return mapper.mapAsList(categoryRepository.findAll(), CategoryDTO.class);
     }
 }

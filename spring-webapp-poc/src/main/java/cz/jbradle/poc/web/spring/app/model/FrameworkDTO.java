@@ -13,7 +13,6 @@ public class FrameworkDTO {
     private String name;
     private String description;
     private String documentationLink;
-    private Date addedOn;
     private CategoryDTO category;
     private int categoryId;
 
@@ -50,14 +49,6 @@ public class FrameworkDTO {
         this.documentationLink = documentationLink;
     }
 
-    public Date getAddedOn() {
-        return addedOn;
-    }
-
-    public void setAddedOn(Date addedOn) {
-        this.addedOn = addedOn;
-    }
-
     public CategoryDTO getCategory() {
         return category;
     }
@@ -81,8 +72,35 @@ public class FrameworkDTO {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", documentationLink='" + documentationLink + '\'' +
-                ", addedOn=" + addedOn +
                 ", category=" + category +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        FrameworkDTO that = (FrameworkDTO) o;
+
+        if (categoryId != that.categoryId) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (description != null ? !description.equals(that.description) : that.description != null) return false;
+        if (documentationLink != null ? !documentationLink.equals(that.documentationLink) : that.documentationLink != null)
+            return false;
+        return !(category != null ? !category.equals(that.category) : that.category != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (documentationLink != null ? documentationLink.hashCode() : 0);
+        result = 31 * result + (category != null ? category.hashCode() : 0);
+        result = 31 * result + categoryId;
+        return result;
     }
 }

@@ -27,7 +27,7 @@ class FrameworkController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String showAddFramework(ModelMap modelMap) {
         modelMap.addAttribute("framework", new FrameworkDTO());
-        modelMap.addAttribute("categories", service.getAllCategoryNames());
+        modelMap.addAttribute("categories", service.getAllCategories());
         return "add";
     }
 
@@ -52,7 +52,7 @@ class FrameworkController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String edit(@PathVariable int id, ModelMap modelMap) {
         modelMap.addAttribute("framework", service.getFrameworkById(id));
-        modelMap.addAttribute("categories", service.getAllCategoryNames());
+        modelMap.addAttribute("categories", service.getAllCategories());
         return "edit";
     }
 
