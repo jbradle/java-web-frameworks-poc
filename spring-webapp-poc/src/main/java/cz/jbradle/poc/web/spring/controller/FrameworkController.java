@@ -1,7 +1,7 @@
 package cz.jbradle.poc.web.spring.controller;
 
-import cz.jbradle.poc.web.spring.app.FrameworkService;
-import cz.jbradle.poc.web.spring.model.FrameworkDTO;
+import cz.jbradle.poc.web.spring.app.service.FrameworkService;
+import cz.jbradle.poc.web.spring.app.model.FrameworkDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

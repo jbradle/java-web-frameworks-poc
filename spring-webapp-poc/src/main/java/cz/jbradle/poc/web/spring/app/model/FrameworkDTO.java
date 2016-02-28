@@ -1,4 +1,4 @@
-package cz.jbradle.poc.web.spring.model;
+package cz.jbradle.poc.web.spring.app.model;
 
 import java.util.Date;
 

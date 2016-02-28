@@ -1,7 +1,7 @@
-package cz.jbradle.poc.web.spring.app;
+package cz.jbradle.poc.web.spring.app.service;
 
-import cz.jbradle.poc.web.spring.model.CategoryDTO;
-import cz.jbradle.poc.web.spring.model.FrameworkDTO;
+import cz.jbradle.poc.web.spring.app.model.CategoryDTO;
+import cz.jbradle.poc.web.spring.app.model.FrameworkDTO;
 
 import java.util.List;
 

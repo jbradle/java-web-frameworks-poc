@@ -1,13 +1,23 @@
-package cz.jbradle.poc.web.spring.model;
+package cz.jbradle.poc.web.spring.app.model;
+
+import javax.persistence.*;
 
 /**
- * Category data transfer object
+ * Category entity object
  * <p>
- * Created by George on 27.2.2016.
+ * Created by George on 6.12.2015.
  */
-public class CategoryDTO {
+@Entity
+@Table(name = "CATEGORY")
+public class Category {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CATEGORY_ID_GENERATOR")
+    @SequenceGenerator(name = "CATEGORY_ID_GENERATOR", sequenceName = "SEQ_CATEGORY_ID")
+    @Column(name = "CATEGORY_ID", unique = true, nullable = false)
     private Integer id;
+
+    @Column(name = "NAME")
     private String name;
 
     public Integer getId() {

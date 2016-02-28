@@ -1,6 +1,6 @@
-package cz.jbradle.poc.web.spring.persistence;
+package cz.jbradle.poc.web.spring.app.persistence;
 
-import cz.jbradle.poc.web.spring.model.Category;
+import cz.jbradle.poc.web.spring.app.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

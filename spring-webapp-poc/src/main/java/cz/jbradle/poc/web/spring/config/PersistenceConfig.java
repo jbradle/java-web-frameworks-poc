@@ -13,7 +13,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "cz.jbradle.poc.web.spring.persistence")
+@EnableJpaRepositories(basePackages = "cz.jbradle.poc.web.spring.app.persistence")
 class PersistenceConfig {
 
     @Bean
@@ -28,7 +28,7 @@ class PersistenceConfig {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         factory.setDataSource(dataSource);
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("cz.jbradle.poc.web.spring.model");
+        factory.setPackagesToScan("cz.jbradle.poc.web.spring.app.model");
         factory.afterPropertiesSet();
         factory.setLoadTimeWeaver(new InstrumentationLoadTimeWeaver());
         return factory;

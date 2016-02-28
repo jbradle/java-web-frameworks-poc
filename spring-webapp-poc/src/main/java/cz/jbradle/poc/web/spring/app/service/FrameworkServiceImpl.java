@@ -1,11 +1,11 @@
-package cz.jbradle.poc.web.spring.app;
+package cz.jbradle.poc.web.spring.app.service;
 
 
-import cz.jbradle.poc.web.spring.model.CategoryDTO;
-import cz.jbradle.poc.web.spring.model.Framework;
-import cz.jbradle.poc.web.spring.model.FrameworkDTO;
-import cz.jbradle.poc.web.spring.persistence.CategoryRepository;
-import cz.jbradle.poc.web.spring.persistence.FrameworkRepository;
+import cz.jbradle.poc.web.spring.app.model.CategoryDTO;
+import cz.jbradle.poc.web.spring.app.model.Framework;
+import cz.jbradle.poc.web.spring.app.model.FrameworkDTO;
+import cz.jbradle.poc.web.spring.app.persistence.CategoryRepository;
+import cz.jbradle.poc.web.spring.app.persistence.FrameworkRepository;
 import ma.glasnost.orika.MapperFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
