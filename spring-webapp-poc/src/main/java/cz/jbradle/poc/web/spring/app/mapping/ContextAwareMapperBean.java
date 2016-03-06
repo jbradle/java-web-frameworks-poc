@@ -39,15 +39,13 @@ public class ContextAwareMapperBean extends ConfigurableMapper implements Applic
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        addAllSpringBeans(applicationContext);
+        addAllSpringBeans();
     }
 
     /**
      * Adds all managed beans of type {@link Mapper} or {@link Converter} to the parent {@link MapperFactory}.
-     *
-     * @param applicationContext The application context to look for managed beans in.
      */
-    private void addAllSpringBeans(final ApplicationContext applicationContext) {
+    private void addAllSpringBeans() {
         final Map<String, Converter> converters = applicationContext.getBeansOfType(Converter.class);
         converters.values().forEach(this::addConverter);
 
