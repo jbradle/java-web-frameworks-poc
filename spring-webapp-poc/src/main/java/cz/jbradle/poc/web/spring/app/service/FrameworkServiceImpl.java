@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Implementation of framework service
  * <p>
- * Created by George on 5.12.2015.
+ * Created by JBradle on 5.12.2015.
  */
 @Service
 @Transactional(readOnly = true)
@@ -51,17 +51,7 @@ class FrameworkServiceImpl implements FrameworkService {
     @Override
     @Transactional
     public void saveFramework(FrameworkDTO frameworkWithChanges) {
-        Framework framework;
-        if (frameworkWithChanges.getId() == null) {
-            framework = new Framework();
-            framework.setAddedOn(new Date());
-        } else {
-            framework = frameworkRepository.findOne(frameworkWithChanges.getId());
-        }
-        framework.setName(frameworkWithChanges.getName());
-        framework.setDescription(frameworkWithChanges.getDescription());
-        framework.setCategory(categoryRepository.findOne(frameworkWithChanges.getCategoryId()));
-        framework.setDocumentationLink(frameworkWithChanges.getDocumentationLink());
+        Framework framework = mapper.map(frameworkWithChanges, Framework.class);
         frameworkRepository.save(framework);
     }
 

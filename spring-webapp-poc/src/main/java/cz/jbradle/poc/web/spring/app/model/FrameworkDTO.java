@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Framework data transfer object
  * <p>
- * Created by George on 27.2.2016.
+ * Created by JBradle on 27.2.2016.
  */
 public class FrameworkDTO {
 

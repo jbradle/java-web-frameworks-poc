@@ -11,7 +11,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 /**
  * Thymeleaf configuration class
  * <p>
- * Created by George on 5.12.2015.
+ * Created by JBradle on 5.12.2015.
  */
 @Configuration
 class ThymeleafConfig {

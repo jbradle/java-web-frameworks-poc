@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Framework service interface
  * <p>
- * Created by George on 5.12.2015.
+ * Created by JBradle on 5.12.2015.
  */
 public interface FrameworkService {
 

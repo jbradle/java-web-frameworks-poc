@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * Servlet configuration root class
  * <p>
- * Created by George on 5.12.2015.
+ * Created by JBradle on 5.12.2015.
  */
 @EnableWebMvc
 @Configuration

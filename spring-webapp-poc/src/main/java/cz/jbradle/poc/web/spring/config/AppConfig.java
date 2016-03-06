@@ -1,7 +1,7 @@
 package cz.jbradle.poc.web.spring.config;
 
+import cz.jbradle.poc.web.spring.app.mapping.ContextAwareMapperBean;
 import ma.glasnost.orika.MapperFacade;
-import ma.glasnost.orika.impl.ConfigurableMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 /**
  * Servlet configuration root class
  * <p>
- * Created by George on 5.12.2015.
+ * Created by JBradle on 5.12.2015.
  */
 @Configuration
 @EnableTransactionManagement
@@ -25,7 +25,7 @@ class AppConfig {
 
     @Bean
     public MapperFacade mapperFacade() {
-        return new ConfigurableMapper();
+        return new ContextAwareMapperBean();
     }
 
     @Bean

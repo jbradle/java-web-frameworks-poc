@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Framework service test
  * <p>
- * Created by George on 28.2.2016.
+ * Created by JBradle on 28.2.2016.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppTestConfig.class)

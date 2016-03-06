@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Framework model object
  * <p>
- * Created by George on 7.11.2015.
+ * Created by JBradle on 7.11.2015.
  */
 @Entity
 @Table(name = "FRAMEWORK")
@@ -81,24 +81,6 @@ public class Framework {
 
     public void setCategory(Category category) {
         this.category = category;
-    }
-
-
-    /**
-     * Walk around of need to make DTOs with some mapping engine
-     */
-    @Transient
-    private int categoryId;
-
-    public int getCategoryId() {
-        if (category != null) {
-            return category.getId();
-        }
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
     }
 
     @Override

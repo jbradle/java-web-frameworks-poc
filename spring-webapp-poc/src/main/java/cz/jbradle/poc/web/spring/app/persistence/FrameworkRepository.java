@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Framework repository
  * <p>
- * Created by George on 5.12.2015.
+ * Created by JBradle on 5.12.2015.
  */
 public interface FrameworkRepository extends JpaRepository<Framework, Integer> {
 

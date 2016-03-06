@@ -5,7 +5,7 @@ import javax.persistence.*;
 /**
  * Category entity object
  * <p>
- * Created by George on 6.12.2015.
+ * Created by JBradle on 6.12.2015.
  */
 @Entity
 @Table(name = "CATEGORY")
