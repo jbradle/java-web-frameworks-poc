@@ -6,3 +6,4 @@
 # Compiled source #
 target
 node_modules
+dist

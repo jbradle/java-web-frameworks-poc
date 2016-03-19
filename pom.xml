@@ -12,6 +12,7 @@
         <module>examples</module>
         <module>spring-app-poc</module>
         <module>spring-web-poc</module>
+        <module>spring-react-flux-poc</module>
     </modules>
 
     <name>Java Web Frameworks POC</name>

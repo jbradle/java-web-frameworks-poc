@@ -19,7 +19,7 @@ class FrameworkController {
     private FrameworkService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String about(ModelMap modelMap) {
+    public String index(ModelMap modelMap) {
         modelMap.addAttribute("frameworks", service.getAllFrameworks());
         return "index";
     }
