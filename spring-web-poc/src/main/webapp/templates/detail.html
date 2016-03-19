@@ -29,12 +29,12 @@
 <!-- Page Content -->
 <div class="container">
     <div class="row">
-        <div class="row" th:replace="fragments/example :: title">
+        <div class="row" th:replace="fragments/shared :: title">
             <div class="col-md-8">
                 <h1>Example - Framework List</h1>
             </div>
         </div>
-        <div class="col-md-3" th:include="fragments/example :: menu">
+        <div class="col-md-3" th:include="fragments/shared :: menu">
             <div class="list-group">
                 <a href="index.html" class="list-group-item active">Framework List</a>
                 <a href="add.html" class="list-group-item">Add Framework</a>

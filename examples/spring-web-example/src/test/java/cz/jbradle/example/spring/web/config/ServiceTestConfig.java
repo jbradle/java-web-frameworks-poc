@@ -11,11 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
-/**
- * Servlet configuration root class
- * <p>
- * Created by George on 5.12.2015.
- */
+
 @Configuration
 @EnableTransactionManagement
 @Import({PersistenceConfig.class})

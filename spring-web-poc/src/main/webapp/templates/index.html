@@ -23,38 +23,28 @@
     <![endif]-->
 </head>
 
+
 <body>
 
 <!-- Page Content -->
 
 <div class="container">
     <div class="row">
-        <div class="row" th:replace="fragments/example :: title">
-            <div class="col-md-5">
+        <div class="row" th:replace="fragments/shared :: title">
+            <div class="col-md-8">
                 <h1>Example - Framework List</h1>
             </div>
         </div>
-        <div class="col-md-3" th:include="fragments/example :: menu" th:with="active=3">
+        <div class="col-md-3" th:include="fragments/shared :: menu" th:with="active=1">
             <div class="list-group">
-                <a href="index.html" class="list-group-item">Framework List</a>
+                <a href="index.html" class="list-group-item active">Framework List</a>
                 <a href="add.html" class="list-group-item">Add Framework</a>
-                <a href="search.html" class="list-group-item active">Search</a>
+                <a href="search.html" class="list-group-item">Search</a>
             </div>
         </div>
 
-        <div class="col-md-8" >
-            <div class="well">
-                <form action="#" th:action="@{/search}" method="get">
-                    <label for="search" th:text="#{framework.search.title}">Framework Search</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="search" name="searchParam"/>
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                        </span>
-                    </div>
-                </form>
-            </div>
-            <table class="table table-hover" th:replace="fragments/example :: table">
+        <div class="col-md-8">
+            <table class="table table-hover" th:replace="fragments/shared :: table">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -67,26 +57,6 @@
                 <tr>
                     <td>Spring Web MVC</td>
                     <td>Web Layer</td>
-                    <td>
-                        <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html">
-                            <i class="fa fa-arrow-right fa-2x"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="detail.html" title="Detail">
-                            <i class="fa fa-folder-open fa-2x"></i>
-                        </a>
-                        <a href="#" title="Edit">
-                            <i class="fa fa-edit fa-2x"></i>
-                        </a>
-                        <a href="#" title="Remove">
-                            <i class="fa fa-remove fa-2x"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Spring beans</td>
-                    <td>Service Layer</td>
                     <td>
                         <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html">
                             <i class="fa fa-arrow-right fa-2x"></i>
