@@ -1,26 +1,36 @@
 import React from "react";
-import {Link} from "react-router";
+import Menu from "../components/Menu.jsx";
 import FrameworkTable from "../components/FrameworkTable.jsx";
+import FrameworkStore from "../flux/stores/frameworkStore.jsx";
+import FrameworkAction from "../flux/actions/frameworkAction.jsx";
 
 class Home extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            items: [1, 2, 3]
+            active: 1,
+            frameworks: []
         };
+    }
+
+    componentDidMount() {
+        this.unsubscribe = FrameworkStore.listen(this.onStatusChange.bind(this));
+        FrameworkAction.getFrameworks();
+    }
+
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
+
+    onStatusChange(state) {
+        this.setState(state);
     }
 
     render() {
         return (
             <div className="row">
-                <div className="col-md-3">
-                    <div className="list-group">
-                        <Link to="/" className="list-group-item active">Framework List</Link>
-                        <Link to="add" className="list-group-item">Add Framework</Link>
-                        <Link to="search" className="list-group-item">Search</Link>
-                    </div>
-                </div>
+                <Menu  {...this.state}/>
                 <div className="col-md-8">
                     <FrameworkTable {...this.state}/>
                 </div>

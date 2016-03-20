@@ -20,7 +20,7 @@ class ServletConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/dist/**").addResourceLocations("/dist/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/js/");
         registry.addResourceHandler("/node_modules/**").addResourceLocations("/node_modules/");
     }
 }

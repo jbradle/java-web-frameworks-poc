@@ -1,4 +1,5 @@
-export default (dev) => ({
+//noinspection JSUnresolvedVariable
+export default (production) => ({
     entry: './src/app.js',
     output: {
         path: __dirname,
@@ -15,5 +16,5 @@ export default (dev) => ({
             }
         }]
     },
-    devtool: dev ? 'eval' : {}
+    devtool: !production ? 'eval' : ''
 });

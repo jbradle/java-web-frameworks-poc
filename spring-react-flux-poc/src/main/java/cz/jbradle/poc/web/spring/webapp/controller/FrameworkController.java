@@ -1,25 +1,35 @@
 package cz.jbradle.poc.web.spring.webapp.controller;
 
-import cz.jbradle.poc.web.spring.app.service.FrameworkService;
 import cz.jbradle.poc.web.spring.app.model.FrameworkDTO;
+import cz.jbradle.poc.web.spring.app.service.FrameworkService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
- * Frameworks controller
- * <p>
- * Created by JBradle on 5.12.2015.
+ * Rest framework controller
+ *
+ * Created by George on 20.3.2016.
  */
-@Controller
+@RestController
+@RequestMapping("rest/")
 class FrameworkController {
+
 
     @Autowired
     private FrameworkService service;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index() {
-        return "index";
+    @RequestMapping(value = "/getAllFrameworks")
+    public List<FrameworkDTO> getAllFrameworks() {
+        return service.getAllFrameworks();
+    }
+
+    @RequestMapping(value = "/searchFrameworks", method = RequestMethod.GET)
+    public List<FrameworkDTO> search(@RequestParam(name = "searchParam", required = false) String searchParam) {
+        return service.searchFrameworks(searchParam);
     }
 }

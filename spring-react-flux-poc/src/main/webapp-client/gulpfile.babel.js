@@ -1,57 +1,61 @@
-import gulp from "gulp";
-import del from "del";
-import connect from 'gulp-connect';
+import gulp from 'gulp';
+import del from 'del';
+import yargs from 'yargs';
+import gulpif from 'gulp-if';
+import uglify from 'gulp-uglify';
 import size from 'gulp-size';
-import webpackConfig from "./webpack.config";
+import browserSync from 'browser-sync'
+import webpackConfig from './webpack.config';
 
 var $ = require('gulp-load-plugins')();
 
-var port = 1337;
+var production = yargs.argv.production;
 
 //environment dev for now
-var config = webpackConfig(true);
+var config = webpackConfig(production);
 
-var dist = '../webapp/dist/';
+var dist = '../webapp/';
+var src = 'src/';
 
 gulp.task('html', () => {
     return gulp.src('src/index.html')
         .pipe(gulp.dest(dist))
-        .pipe(size({title: 'html'}))
-        .pipe(connect.reload());
+        .pipe(size({title: 'html'}));
 });
 
 gulp.task('scripts', () => {
     return gulp.src(config.entry)
         .pipe($.webpack(config))
+        .pipe(gulpif(production, uglify()))
         .pipe(gulp.dest(dist + '/js'))
-        .pipe(size({title: 'scripts'}))
-        .pipe(connect.reload());
+        .pipe(size({title: 'scripts'}));
 });
 
 gulp.task('clean', (callBack) => {
-    return del([dist], {force: true}, callBack);
+    del([dist + '*.html'], {force: true}, callBack);
+    return del([dist + 'js/**/*.*'], {force: true}, callBack);
 });
 
-gulp.task('connect', () => {
-    connect.server({
-        root: '../webapp/',
-        port: port,
-        livereload: {
-            port: 35729
+gulp.task('browser-sync', () => {
+    browserSync({
+        files: dist + 'js/app.js',
+        server: {
+            baseDir: '../webapp/'
         }
     });
 });
 
 gulp.task('watch', () => {
-    gulp.watch('src/index.html', ['html']);
-    gulp.watch('src/**/*.js', ['scripts']);
-    gulp.watch('src/**/*.jsx', ['scripts']);
+    gulp.watch(src + 'index.html', ['html']);
+    gulp.watch(src + '**/*.js', ['scripts']);
+    gulp.watch(src + '**/*.jsx', ['scripts']);
 });
 
-gulp.task('default', ['html','scripts'], function(){
-    gulp.start(['connect','watch']);
+
+gulp.task('default', ['html', 'scripts'], () => {
+    gulp.start(['browser-sync', 'watch']);
 });
 
-gulp.task('build', ['clean'], function(){
-    gulp.start(['html','scripts']);
+gulp.task('build', ['clean'], () => {
+    gulp.start(['html', 'scripts']);
 });

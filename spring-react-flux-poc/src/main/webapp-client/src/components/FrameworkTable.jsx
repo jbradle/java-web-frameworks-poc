@@ -1,13 +1,13 @@
 import React from "react";
 
 const FrameworkTable = (props) => {
-
-    let frameworks = props.items.map(item =>
-        <tr>
-            <td>Spring Web MVC</td>
-            <td>Web Layer</td>
+    
+    let frameworks = props.frameworks.map(framework =>
+        <tr key={framework.id}>
+            <td>{framework.name}</td>
+            <td>{framework.category.name}</td>
             <td>
-                <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html">
+                <a href={framework.documentationLink}>
                     <i className="fa fa-arrow-right fa-2x"/>
                 </a>
             </td>
@@ -24,7 +24,8 @@ const FrameworkTable = (props) => {
             </td>
         </tr>
     );
-    
+
+
     return (
         <table className="table table-hover">
             <thead>
@@ -43,7 +44,6 @@ const FrameworkTable = (props) => {
 };
 
 FrameworkTable.propTypes = {
-    loading: React.PropTypes.bool,
     items: React.PropTypes.array
 };
 
