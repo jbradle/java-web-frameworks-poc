@@ -8,18 +8,18 @@ let FrameworkStore = Reflux.createStore({
         this.frameworks = [];
     },
 
-
     getFrameworksCompleted(frameworks) {
         this.frameworks = frameworks;
 
         this.trigger({
-            frameworks : this.frameworks
+            frameworks: this.frameworks,
+            showDetail: false
         });
     },
 
     getFrameworksFailed(error) {
         this.trigger({
-            error : error
+            error: error
         });
     },
 
@@ -27,17 +27,25 @@ let FrameworkStore = Reflux.createStore({
         this.frameworks = frameworks;
 
         this.trigger({
-            frameworks : this.frameworks
+            frameworks: this.frameworks
         });
     },
-
+    
     searchFrameworksFailed(error) {
         this.trigger({
-            error : error
+            error: error
+        });
+    },
+    
+    onShowDetail(framework){
+        this.trigger({
+            showDetail: true,
+            framework: framework
         });
     }
-    
-    
+
+
+
 });
 
 export default FrameworkStore;

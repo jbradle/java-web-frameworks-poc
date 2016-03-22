@@ -7,14 +7,13 @@ class Add extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: 2
         };
     }
 
     render() {
         return (
             <div className="row">
-                <Menu  {...this.state}/>
+                <Menu  {...{active : 2}}/>
                 <div className="col-md-8">
                     <div className="well">
                         <h4>Add New Framework</h4>

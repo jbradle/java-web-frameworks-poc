@@ -28,8 +28,8 @@ class FrameworkController {
         return service.getAllFrameworks();
     }
 
-    @RequestMapping(value = "/searchFrameworks", method = RequestMethod.GET)
-    public List<FrameworkDTO> search(@RequestParam(name = "searchParam", required = false) String searchParam) {
-        return service.searchFrameworks(searchParam);
-    }
+	@RequestMapping(value = "/searchFrameworks", method = RequestMethod.GET)
+	public List<FrameworkDTO> search(@RequestParam(name = "searchParam", required = false) String searchParam) {
+		return service.searchFrameworks(searchParam);
+	}
 }

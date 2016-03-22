@@ -9,7 +9,6 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: 1,
             frameworks: []
         };
     }
@@ -30,7 +29,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className="row">
-                <Menu  {...this.state}/>
+                <Menu  {...{active : 1}}/>
                 <div className="col-md-8">
                     <FrameworkTable {...this.state}/>
                 </div>

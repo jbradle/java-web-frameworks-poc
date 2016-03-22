@@ -10,9 +10,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: 3,
-            frameworks: [],
-            onSubmit: this.onSubmit
+            frameworks: []
         };
     }
 
@@ -30,14 +28,13 @@ class Home extends React.Component {
     }
 
     handleChange(event) {
-        
         FrameworkAction.searchFrameworks(event.target.value);
     }
 
     render() {
         return (
             <div className="row">
-                <Menu  {...this.state}/>
+                <Menu  {...{active : 3}}/>
 
                 <div className="col-md-8">
                     <div className="well">

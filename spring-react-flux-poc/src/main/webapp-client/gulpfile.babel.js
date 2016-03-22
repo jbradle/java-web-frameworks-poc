@@ -10,8 +10,6 @@ import webpackConfig from './webpack.config';
 var $ = require('gulp-load-plugins')();
 
 var production = yargs.argv.production;
-
-//environment dev for now
 var config = webpackConfig(production);
 
 var dist = '../webapp/';
