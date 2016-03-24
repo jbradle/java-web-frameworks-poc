@@ -1,4 +1,4 @@
-# java-web-frameworks-poc
+# spring-react-flux-poc
 
 POC of client side application using React, Reflux, Spring REST API.
 
