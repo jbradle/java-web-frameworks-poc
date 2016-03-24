@@ -23,12 +23,6 @@ This project contains sub module on path ./src/main/**webapp-client** which is r
 
 ## Build
 
-Make sure [Maven](https://maven.apache.org/) is installed.
-
-```
-$ mvn clean install
-```
-
 Make sure [node.js](https://nodejs.org) and [Gulp](http://gulpjs.com/) are installed.
 
 On path ./src/main/webapp-client
@@ -38,6 +32,12 @@ $ npm install
 
 ```
 $ gulp buil --production
+```
+
+Make sure [Maven](https://maven.apache.org/) is installed.
+
+```
+$ mvn clean install
 ```
 
 ## Develop
