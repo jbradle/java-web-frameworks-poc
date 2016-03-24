@@ -21,7 +21,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 @Import({PersistenceConfig.class})
 @ComponentScan(basePackages = "cz.jbradle.poc.web.spring.app")
-class AppConfig {
+public class AppConfig {
 
     @Bean
     public MapperFacade mapperFacade() {

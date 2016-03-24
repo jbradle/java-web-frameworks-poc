@@ -20,7 +20,7 @@ For easy and comfortable development this module uses Browser-sync for automatic
 
 ## Installation
 
-Make sure [node.js](https://nodejs.org).
+Make sure [node.js](https://nodejs.org) is installed.
 
 ```
 $ npm install
