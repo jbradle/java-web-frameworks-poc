@@ -18,7 +18,6 @@ This project contains sub module on path ./src/main/**webapp-client** which is r
 - [Gulp](http://gulpjs.com/)
 - [Webpack](https://webpack.github.io/)
 - [Browser-sync](http://www.browsersync.io/)
-- [Webpack](https://webpack.github.io/)
 - [Babel](https://babeljs.io/)
 - [Maven](https://maven.apache.org/)
 
