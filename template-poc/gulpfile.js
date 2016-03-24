@@ -12,3 +12,5 @@ gulp.task('browser-sync', function () {
         }
     });
 });
+
+gulp.task('default', ['browser-sync']);

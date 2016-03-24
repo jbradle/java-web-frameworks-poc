@@ -5,10 +5,10 @@ It will serve as the POC (Proof Of Concept) for my thesis in [University of Hrad
 
 ## Main Frameworks
 
-- [Spring](https://spring.io/) 4.2.5.RELEASE
-- [Thymeleaf](http://www.thymeleaf.org/) 2.1.4.RELEASE
-- [React](https://facebook.github.io/react/) 0.14.2
-- [RefluxJS](https://github.com/reflux/refluxjs) 0.4.0
+- [Spring](https://spring.io/)
+- [Thymeleaf](http://www.thymeleaf.org/)
+- [React](https://facebook.github.io/react/)
+- [RefluxJS](https://github.com/reflux/refluxjs)
 
 #### Build Tools
 
@@ -23,7 +23,7 @@ It will serve as the POC (Proof Of Concept) for my thesis in [University of Hrad
 - **examples** - examples of used technologies (snipped in thesis)
 - **spring-app-poc** - Spring application that holds "business" logic.
 - **spring-web-poc** - POC of server side web application using Spring MVC with Thymeleaf template engine.
-- **spring-react-flux-poc** - POC of client side application using React, Reflux, Spring REST API. App is served by Thymeleaf template engine.
+- **spring-react-flux-poc** - POC of client side application using React, Reflux, Spring REST API.
 - **template-poc** - HTML templates for POC projects
 
 ## All-in-one Installation
@@ -39,7 +39,7 @@ $ npm install --global gulp
 
 Following this step install dependencies for all modules. It is possible to install dependencies for each module alone.
 
-### 1. In ROOT folder run:
+### 2. In ROOT folder run:
 
 ```
 $ install
