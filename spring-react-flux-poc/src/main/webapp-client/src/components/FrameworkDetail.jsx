@@ -53,7 +53,7 @@ const FrameworkDetail = (props) => {
 
 FrameworkDetail.propTypes = {
     framework: React.PropTypes.object,
-    backFce: React.PropTypes.fce
+    backFce: React.PropTypes.func
 };
 
 export default FrameworkDetail;

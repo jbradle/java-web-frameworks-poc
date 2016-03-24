@@ -15,6 +15,10 @@ class FrameworkRow extends React.Component {
         FrameworkAction.showEdit(this.props.framework);
     }
 
+    deleteFramework() {
+        FrameworkAction.deleteFramework(this.props.framework);
+    }
+
     render() {
         let framework = this.props.framework;
         return (
@@ -33,7 +37,7 @@ class FrameworkRow extends React.Component {
                     <a title="Edit" onClick={this.showEdit.bind(this)}>
                         <i className="fa fa-edit fa-2x"/>
                     </a>
-                    <a href="#" title="Remove">
+                    <a title="Remove"  onClick={this.deleteFramework.bind(this)}>
                         <i className="fa fa-remove fa-2x"/>
                     </a>
                 </td>

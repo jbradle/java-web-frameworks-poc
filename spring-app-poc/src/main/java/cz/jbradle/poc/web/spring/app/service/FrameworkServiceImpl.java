@@ -33,7 +33,7 @@ class FrameworkServiceImpl implements FrameworkService {
 
     @Override
     public List<FrameworkDTO> getAllFrameworks() {
-        return mapper.mapAsList(frameworkRepository.findAllFetchCategoryOrderByAddedOn(), FrameworkDTO.class);
+        return mapper.mapAsList(frameworkRepository.findAllFetchCategoryOrderByName(), FrameworkDTO.class);
     }
 
     @Override
@@ -58,9 +58,9 @@ class FrameworkServiceImpl implements FrameworkService {
     @Override
     public List<FrameworkDTO> searchFrameworks(String searchParam) {
         if (searchParam != null) {
-            return mapper.mapAsList(frameworkRepository.findByNameContainingIgnoreCaseOrderByAddedOn(searchParam), FrameworkDTO.class);
+            return mapper.mapAsList(frameworkRepository.findByNameContainingIgnoreCaseOrderByName(searchParam), FrameworkDTO.class);
         }
-        return mapper.mapAsList(frameworkRepository.findAllFetchCategoryOrderByAddedOn(), FrameworkDTO.class);
+        return mapper.mapAsList(frameworkRepository.findAllFetchCategoryOrderByName(), FrameworkDTO.class);
     }
 
     @Override

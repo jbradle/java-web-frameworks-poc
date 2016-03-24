@@ -21,17 +21,16 @@ gulp.task('html', () => {
         .pipe(size({title: 'html'}));
 });
 
-gulp.task('scripts', () => {
+gulp.task('app', () => {
     return gulp.src(config.entry)
         .pipe($.webpack(config))
         .pipe(gulpif(production, uglify()))
         .pipe(gulp.dest(dist + '/js'))
-        .pipe(size({title: 'scripts'}));
+        .pipe(size({title: 'app'}));
 });
 
 gulp.task('clean', (callBack) => {
-    del([dist + '*.html'], {force: true}, callBack);
-    return del([dist + 'js/**/*.*'], {force: true}, callBack);
+    return del([dist + 'js/**/*.*', dist + '*.html'], {force: true}, callBack);
 });
 
 gulp.task('browser-sync', () => {
@@ -45,15 +44,14 @@ gulp.task('browser-sync', () => {
 
 gulp.task('watch', () => {
     gulp.watch(src + 'index.html', ['html']);
-    gulp.watch(src + '**/*.js', ['scripts']);
-    gulp.watch(src + '**/*.jsx', ['scripts']);
+    gulp.watch(src + '**/*.jsx', ['app']);
 });
 
 
-gulp.task('default', ['html', 'scripts'], () => {
+gulp.task('default', ['html', 'app'], () => {
     gulp.start(['browser-sync', 'watch']);
 });
 
 gulp.task('build', ['clean'], () => {
-    gulp.start(['html', 'scripts']);
+    gulp.start(['html', 'app']);
 });

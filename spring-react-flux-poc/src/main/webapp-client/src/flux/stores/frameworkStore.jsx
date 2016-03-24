@@ -59,6 +59,38 @@ let FrameworkStore = Reflux.createStore({
         this.trigger({
             error: error
         });
+    },
+
+    saveFrameworkCompleted(frameworks) {
+        this.frameworks = frameworks;
+
+        this.trigger({
+            frameworks: frameworks,
+            showDetail: false,
+            showEdit: false
+        });
+    },
+
+    saveFrameworkFailed(error) {
+        this.trigger({
+            error: error
+        });
+    },
+
+    deleteFrameworkCompleted(frameworks) {
+        this.frameworks = frameworks;
+
+        this.trigger({
+            frameworks: frameworks,
+            showDetail: false,
+            showEdit: false
+        });
+    },
+
+    deleteFrameworkFailed(error) {
+        this.trigger({
+            error: error
+        });
     }
 
 });

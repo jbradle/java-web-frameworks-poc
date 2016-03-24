@@ -13,8 +13,8 @@ import java.util.List;
  */
 public interface FrameworkRepository extends JpaRepository<Framework, Integer> {
 
-    List<Framework> findByNameContainingIgnoreCaseOrderByAddedOn(String searchPattern);
+    List<Framework> findByNameContainingIgnoreCaseOrderByName(String searchPattern);
 
-    @Query("select f from Framework f join fetch f.category order by f.addedOn desc")
-    List<Framework> findAllFetchCategoryOrderByAddedOn();
+    @Query("select f from Framework f join fetch f.category order by f.name desc")
+    List<Framework> findAllFetchCategoryOrderByName();
 }

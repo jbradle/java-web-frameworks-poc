@@ -1,6 +1,6 @@
 //noinspection JSUnresolvedVariable
 export default (production) => ({
-    entry: './src/app.js',
+    entry: './src/app.jsx',
     output: {
         path: __dirname,
         filename: 'app.js'
