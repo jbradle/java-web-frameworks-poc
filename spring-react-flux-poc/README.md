@@ -9,7 +9,6 @@ This project contains sub module on path ./src/main/**webapp-client** which is r
 - [React](https://facebook.github.io/react/) - rendering content
 - [RefluxJS](https://github.com/reflux/refluxjs) - data flow and actions management
 - [superagent](https://visionmedia.github.io/superagent/) - client side rest communication
-
 - [Thymeleaf](http://www.thymeleaf.org/) - serves client application
 - [Spring Web MVC](http://docs.spring.io/autorepo/docs/spring/4.2.x/spring-framework-reference/html/mvc.html) - used as REST API ad for first lod of application
 
