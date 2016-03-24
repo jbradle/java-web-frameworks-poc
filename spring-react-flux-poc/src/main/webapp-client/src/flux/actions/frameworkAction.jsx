@@ -4,6 +4,7 @@ import {get} from "../rest/api.jsx";
 const FrameworkActions = Reflux.createActions({
     'getFrameworks': {children: ['completed', 'failed']},
     'searchFrameworks': {children: ['completed', 'failed']},
+    'showEdit': {children: ['completed', 'failed']},
     'showDetail': {}
 });
 
@@ -25,6 +26,17 @@ FrameworkActions.searchFrameworks.listen(function (searchParam) {
     get(REST_URI + 'searchFrameworks?searchParam=' + searchParam)
         .then((frameworks) => {
             this.completed(frameworks);
+        }).catch((err) => {
+        this.failed(err);
+    });
+
+});
+
+FrameworkActions.showEdit.listen(function (framework) {
+
+    get(REST_URI + 'getAllCategories')
+        .then((categories) => {
+            this.completed(framework, categories);
         }).catch((err) => {
         this.failed(err);
     });

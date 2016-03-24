@@ -8,7 +8,11 @@ class FrameworkRow extends React.Component {
     }
 
     showDetail() {
-        FrameworkAction.showDetail(this);
+        FrameworkAction.showDetail(this.props.framework);
+    }
+
+    showEdit() {
+        FrameworkAction.showEdit(this.props.framework);
     }
 
     render() {
@@ -23,10 +27,10 @@ class FrameworkRow extends React.Component {
                     </a>
                 </td>
                 <td>
-                    <a title="Detail" onClick={this.showDetail.bind(framework)}>
+                    <a title="Detail" onClick={this.showDetail.bind(this)}>
                         <i className="fa fa-folder-open fa-2x"/>
                     </a>
-                    <a href="#" title="Edit">
+                    <a title="Edit" onClick={this.showEdit.bind(this)}>
                         <i className="fa fa-edit fa-2x"/>
                     </a>
                     <a href="#" title="Remove">

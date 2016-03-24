@@ -1,6 +1,7 @@
 import React from "react";
 import FrameworkStore from "../flux/stores/frameworkStore.jsx";
 import FrameworkDetail from "./FrameworkDetail.jsx"
+import FrameworkEdit from "./FrameworkEdit.jsx"
 import FrameworkRow from './FrameworkRow.jsx'
 import FrameworkAction from "../flux/actions/frameworkAction.jsx";
 
@@ -11,7 +12,7 @@ class FrameworkTable extends React.Component {
         this.state = {
             frameworks: props.frameworks,
             showDetail: false,
-            frameworkDetail: {}
+            showEdit: false
         };
     }
 
@@ -27,18 +28,28 @@ class FrameworkTable extends React.Component {
         this.setState(state);
     }
 
-    reloadTable(){
+    reloadTable() {
         FrameworkAction.getFrameworks();
     }
 
+    saveFramework(framework) {
+
+    }
+
     render() {
+        let framework = this.state.framework;
+        let categories = this.state.categories;
 
         if (this.state.showDetail) {
-            return <FrameworkDetail {...{framework:this.state.framework, backFce : this.reloadTable}}/>
+            return <FrameworkDetail {...{framework: framework, backFce: this.reloadTable}}/>
+        }
+
+        if (this.state.showEdit) {
+            return <FrameworkEdit {...{framework: framework, categories: categories, saveFce: this.saveFramework}}/>
         }
 
         let frameworks = this.state.frameworks.map(framework =>
-            <FrameworkRow key={framework.id}  {...{framework : framework}}/>
+            <FrameworkRow key={framework.id}  {...{framework: framework}}/>
         );
 
         return (
@@ -60,8 +71,7 @@ class FrameworkTable extends React.Component {
 }
 
 FrameworkTable.propTypes = {
-    frameworks: React.PropTypes.array,
-    handleDetail: React.PropTypes.func
+    frameworks: React.PropTypes.array
 };
 
 export default FrameworkTable;

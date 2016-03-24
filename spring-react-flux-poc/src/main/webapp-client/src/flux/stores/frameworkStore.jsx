@@ -6,6 +6,7 @@ let FrameworkStore = Reflux.createStore({
 
     init() {
         this.frameworks = [];
+        this.categories = []
     },
 
     getFrameworksCompleted(frameworks) {
@@ -30,21 +31,35 @@ let FrameworkStore = Reflux.createStore({
             frameworks: this.frameworks
         });
     },
-    
+
     searchFrameworksFailed(error) {
         this.trigger({
             error: error
         });
     },
-    
+
     onShowDetail(framework){
         this.trigger({
             showDetail: true,
             framework: framework
         });
+    },
+
+    showEditCompleted(framework, categories){
+        this.categories = categories;
+        
+        this.trigger({
+            showEdit: true,
+            framework: framework,
+            categories: categories
+        });
+    },
+
+    showEditFailed(error) {
+        this.trigger({
+            error: error
+        });
     }
-
-
 
 });
 

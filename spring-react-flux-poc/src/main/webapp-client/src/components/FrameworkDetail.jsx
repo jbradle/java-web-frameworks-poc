@@ -52,7 +52,7 @@ const FrameworkDetail = (props) => {
 };
 
 FrameworkDetail.propTypes = {
-    frameworkDetail: React.PropTypes.object,
+    framework: React.PropTypes.object,
     backFce: React.PropTypes.fce
 };
 
