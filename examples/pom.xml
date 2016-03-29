@@ -17,11 +17,8 @@
     <modules>
         <module>spring-context-example</module>
         <module>spring-web-example</module>
+        <module>spring-rest-example</module>
     </modules>
-
-    <properties>
-        <spring.version>4.2.3.RELEASE</spring.version>
-    </properties>
 
     <dependencyManagement>
         <dependencies>
