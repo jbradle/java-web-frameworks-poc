@@ -22,6 +22,6 @@ public class WebInitializer
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[]{};
+        return new Class<?>[]{ServiceConfig.class};
     }
 }

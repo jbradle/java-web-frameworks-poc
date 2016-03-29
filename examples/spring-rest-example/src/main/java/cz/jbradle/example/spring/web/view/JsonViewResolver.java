@@ -9,7 +9,8 @@ import java.util.Locale;
 public class JsonViewResolver implements ViewResolver {
 
 	@Override
-	public View resolveViewName(String viewName, Locale locale) throws Exception {
+	public View resolveViewName(String viewName, Locale locale)
+			throws Exception {
 		return new MappingJackson2JsonView();
 	}
 }
