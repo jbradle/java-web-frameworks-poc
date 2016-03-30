@@ -16,7 +16,7 @@ var dist = '../webapp/';
 var src = 'src/';
 
 gulp.task('html', () => {
-    return gulp.src('src/index.html')
+    return gulp.src(src + 'index.html')
         .pipe(gulp.dest(dist))
         .pipe(size({title: 'html'}));
 });
@@ -29,8 +29,9 @@ gulp.task('app', () => {
         .pipe(size({title: 'app'}));
 });
 
-gulp.task('clean', (callBack) => {
-    return del([dist + 'js/**/*.*', dist + '*.html'], {force: true}, callBack);
+gulp.task('watch', () => {
+    gulp.watch(src + 'index.html', ['html']);
+    gulp.watch(src + '**/*.jsx', ['app']);
 });
 
 gulp.task('browser-sync', () => {
@@ -42,14 +43,13 @@ gulp.task('browser-sync', () => {
     });
 });
 
-gulp.task('watch', () => {
-    gulp.watch(src + 'index.html', ['html']);
-    gulp.watch(src + '**/*.jsx', ['app']);
-});
-
-
 gulp.task('default', ['html', 'app'], () => {
     gulp.start(['browser-sync', 'watch']);
+});
+
+gulp.task('clean', (callBack) => {
+    return del([dist + 'js/**/*.*', dist + '*.html'],
+        {force: true}, callBack);
 });
 
 gulp.task('build', ['clean'], () => {

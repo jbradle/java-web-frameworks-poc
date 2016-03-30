@@ -5,7 +5,7 @@ export default (production) => ({
         path: __dirname,
         filename: 'app.js'
     },
-    debug: false,
+    debug: !production,
     module: {
         loaders: [{
             test: /\.jsx?$/,
