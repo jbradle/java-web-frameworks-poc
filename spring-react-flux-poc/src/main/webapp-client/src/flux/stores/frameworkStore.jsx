@@ -1,12 +1,20 @@
 import Reflux from "reflux";
 import FrameworkAction from "../actions/frameworkAction.jsx";
 
+
 let FrameworkStore = Reflux.createStore({
     listenables: FrameworkAction,
 
     init() {
         this.frameworks = [];
-        this.categories = []
+        this.categories = [];
+    },
+
+    onGetFrameworks() {
+        this.trigger({
+            frameworks: this.frameworks,
+            showDetail: false
+        });
     },
 
     getFrameworksCompleted(frameworks) {
@@ -21,6 +29,12 @@ let FrameworkStore = Reflux.createStore({
     getFrameworksFailed(error) {
         this.trigger({
             error: error
+        });
+    },
+
+    onSearchFrameworks() {
+        this.trigger({
+            frameworks: []
         });
     },
 
@@ -45,9 +59,17 @@ let FrameworkStore = Reflux.createStore({
         });
     },
 
+    onShowEdit(framework){
+        this.trigger({
+            showEdit: true,
+            framework: framework,
+            categories: this.categories
+        });
+    },
+
     showEditCompleted(framework, categories){
         this.categories = categories;
-        
+
         this.trigger({
             showEdit: true,
             framework: framework,
@@ -61,11 +83,19 @@ let FrameworkStore = Reflux.createStore({
         });
     },
 
+    onSaveFramework() {
+        this.trigger({
+            frameworks: this.frameworks,
+            showDetail: false,
+            showEdit: false
+        });
+    },
+
     saveFrameworkCompleted(frameworks) {
         this.frameworks = frameworks;
 
         this.trigger({
-            frameworks: frameworks,
+            frameworks: this.frameworks,
             showDetail: false,
             showEdit: false
         });
@@ -77,11 +107,19 @@ let FrameworkStore = Reflux.createStore({
         });
     },
 
+    onDeleteFramework() {
+        this.trigger({
+            frameworks: this.frameworks,
+            showDetail: false,
+            showEdit: false
+        });
+    },
+
     deleteFrameworkCompleted(frameworks) {
         this.frameworks = frameworks;
 
         this.trigger({
-            frameworks: frameworks,
+            frameworks: this.frameworks,
             showDetail: false,
             showEdit: false
         });
