@@ -1,12 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute } from 'react-router';
-import { hashHistory } from 'react-router'
-
-import Main from './view/main.jsx';
-import Home from './view/home.jsx';
-import Add from './view/add.jsx';
-import Search from './view/search.jsx';
+import React from "react";
+import ReactDOM from "react-dom";
+import {Router, Route, IndexRoute, hashHistory} from "react-router";
+import Main from "./view/main.jsx";
+import Home from "./view/home.jsx";
+import Add from "./view/add.jsx";
+import Search from "./view/search.jsx";
 
 /*
  Routes

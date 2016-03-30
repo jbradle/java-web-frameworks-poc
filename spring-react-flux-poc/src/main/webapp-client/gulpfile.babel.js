@@ -1,11 +1,11 @@
-import gulp from 'gulp';
-import del from 'del';
-import yargs from 'yargs';
-import gulpif from 'gulp-if';
-import uglify from 'gulp-uglify';
-import size from 'gulp-size';
-import browserSync from 'browser-sync'
-import webpackConfig from './webpack.config';
+import gulp from "gulp";
+import del from "del";
+import yargs from "yargs";
+import gulpif from "gulp-if";
+import uglify from "gulp-uglify";
+import size from "gulp-size";
+import browserSync from "browser-sync";
+import webpackConfig from "./webpack.config";
 
 var $ = require('gulp-load-plugins')();
 

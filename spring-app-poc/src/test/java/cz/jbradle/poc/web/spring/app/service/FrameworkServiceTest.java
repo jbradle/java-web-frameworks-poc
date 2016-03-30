@@ -1,6 +1,5 @@
 package cz.jbradle.poc.web.spring.app.service;
 
-
 import cz.jbradle.poc.web.spring.app.model.CategoryDTO;
 import cz.jbradle.poc.web.spring.app.model.FrameworkDTO;
 import cz.jbradle.poc.web.spring.config.AppTestConfig;
@@ -8,7 +7,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 

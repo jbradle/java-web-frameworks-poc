@@ -1,5 +1,5 @@
-import Reflux from 'reflux';
-import FrameworkAction from '../actions/frameworkAction.jsx';
+import Reflux from "reflux";
+import FrameworkAction from "../actions/frameworkAction.jsx";
 
 let FrameworkStore = Reflux.createStore({
     listenables: FrameworkAction,

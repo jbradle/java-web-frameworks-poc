@@ -1,8 +1,8 @@
 import React from "react";
 import FrameworkStore from "../flux/stores/frameworkStore.jsx";
-import FrameworkDetail from "./FrameworkDetail.jsx"
-import FrameworkEdit from "./FrameworkEdit.jsx"
-import FrameworkRow from './FrameworkRow.jsx'
+import FrameworkDetail from "./FrameworkDetail.jsx";
+import FrameworkEdit from "./FrameworkEdit.jsx";
+import FrameworkRow from "./FrameworkRow.jsx";
 import FrameworkAction from "../flux/actions/frameworkAction.jsx";
 
 class FrameworkTable extends React.Component {
