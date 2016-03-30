@@ -45,7 +45,7 @@ class FrameworkTable extends React.Component {
         }
 
         if (this.state.showEdit) {
-            return <FrameworkEdit {...{framework: framework, categories: categories, saveFce: this.saveFramework}}/>
+            return <FrameworkEdit {...{framework: framework, categories: categories}}/>
         }
 
         let frameworks = this.state.frameworks.map(framework =>
