@@ -1,10 +1,12 @@
 import React from "react";
 import Menu from "../components/Menu.jsx";
+import linkParams from "./linkParams.jsx";
 import FrameworkTable from "../components/FrameworkTable.jsx";
 import FrameworkStore from "../flux/stores/frameworkStore.jsx";
 import FrameworkAction from "../flux/actions/frameworkAction.jsx";
 
-class Home extends React.Component {
+
+export default class Home extends React.Component {
 
     constructor(props) {
         super(props);
@@ -16,7 +18,8 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        this.unsubscribe = FrameworkStore.listen(this.onStatusChange.bind(this));
+        this.unsubscribe =
+            FrameworkStore.listen(this.onStatusChange.bind(this));
         FrameworkAction.getFrameworks();
     }
 
@@ -31,7 +34,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className="row">
-                <Menu  {...{active : 1}}/>
+                <Menu  {...{active : 1, linkParams : linkParams}}/>
                 <div className="col-md-8">
                     <FrameworkTable {...this.state}/>
                 </div>
@@ -39,5 +42,3 @@ class Home extends React.Component {
         );
     }
 }
-
-export default Home;

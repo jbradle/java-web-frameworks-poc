@@ -1,5 +1,6 @@
 import React from "react";
 import Menu from "../components/Menu.jsx";
+import linkParams from "./linkParams.jsx";
 import FrameworkEdit from "../components/FrameworkEdit.jsx";
 
 class Add extends React.Component {
@@ -16,7 +17,7 @@ class Add extends React.Component {
     render() {
         return (
             <div className="row">
-                <Menu  {...{active: 2}}/>
+                <Menu  {...{active : 2, linkParams : linkParams}}/>
                 <div className="col-md-8">
                     <FrameworkEdit {...this.state}/>
                 </div>

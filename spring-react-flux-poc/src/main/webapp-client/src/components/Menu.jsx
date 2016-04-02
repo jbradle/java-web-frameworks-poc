@@ -3,21 +3,7 @@ import {Link} from "react-router";
 
 const Menu = (props) => {
 
-    let linkParams = [{
-        'id': 1,
-        'to': '/',
-        'description': 'Framework List'
-    }, {
-        'id': 2,
-        'to': 'add',
-        'description': 'Add Framework'
-    }, {
-        'id': 3,
-        'to': 'search',
-        'description': 'Search'
-    }];
-
-    let links = linkParams.map(linkParam =>
+    let links = props.linkParams.map(linkParam =>
         <Link key={linkParam.id} to={linkParam.to}
               className={'list-group-item' + (linkParam.id === props.active ? ' active' : '') }
         >{linkParam.description}</Link>
@@ -33,7 +19,8 @@ const Menu = (props) => {
 };
 
 Menu.propTypes = {
-    active: React.PropTypes.number
+    active: React.PropTypes.number,
+    linkParams: React.PropTypes.array
 };
 
 export default Menu;

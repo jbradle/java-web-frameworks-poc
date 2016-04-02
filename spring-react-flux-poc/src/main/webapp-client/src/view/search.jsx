@@ -1,5 +1,6 @@
 import React from "react";
 import Menu from "../components/Menu.jsx";
+import linkParams from "./linkParams.jsx";
 import FrameworkStore from "../flux/stores/frameworkStore.jsx";
 import FrameworkAction from "../flux/actions/frameworkAction.jsx";
 import FrameworkTable from "../components/FrameworkTable.jsx";
@@ -36,7 +37,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className="row">
-                <Menu  {...{active : 3}}/>
+                <Menu  {...{active : 3, linkParams : linkParams}}/>
                 <div className="col-md-8">
                     <div className="well">
                         <form>
