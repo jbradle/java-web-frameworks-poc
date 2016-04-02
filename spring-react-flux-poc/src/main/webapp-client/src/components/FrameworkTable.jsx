@@ -1,5 +1,4 @@
 import React from "react";
-import FrameworkStore from "../flux/stores/frameworkStore.jsx";
 import FrameworkDetail from "./FrameworkDetail.jsx";
 import FrameworkEdit from "./FrameworkEdit.jsx";
 import FrameworkRow from "./FrameworkRow.jsx";
@@ -7,48 +6,27 @@ import FrameworkAction from "../flux/actions/frameworkAction.jsx";
 
 class FrameworkTable extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            frameworks: props.frameworks,
-            showDetail: false,
-            showEdit: false
-        };
-    }
-
-    componentDidMount() {
-        this.unsubscribe = FrameworkStore.listen(this.onStatusChange.bind(this));
-    }
-
-    componentWillUnmount() {
-        this.unsubscribe();
-    }
-
-    onStatusChange(state) {
-        this.setState(state);
-    }
-
     reloadTable() {
         FrameworkAction.getFrameworks();
     }
 
-    saveFramework(framework) {
-
-    }
-
     render() {
-        let framework = this.state.framework;
-        let categories = this.state.categories;
 
-        if (this.state.showDetail) {
-            return <FrameworkDetail {...{framework: framework, backFce: this.reloadTable}}/>
+        if (this.props.showDetail) {
+            return <FrameworkDetail {...{
+                framework: this.props.framework,
+                backFce: this.reloadTable
+            }}/>
         }
 
-        if (this.state.showEdit) {
-            return <FrameworkEdit {...{framework: framework, categories: categories}}/>
+        if (this.props.showEdit) {
+            return <FrameworkEdit {...{
+                framework: this.props.framework, 
+                categories: this.props.categories
+            }}/>
         }
 
-        let frameworks = this.state.frameworks.map(framework =>
+        let frameworkRows = this.props.frameworks.map(framework =>
             <FrameworkRow key={framework.id}  {...{framework: framework}}/>
         );
 
@@ -63,7 +41,7 @@ class FrameworkTable extends React.Component {
                 </tr>
                 </thead>
                 <tbody>
-                {frameworks}
+                {frameworkRows}
                 </tbody>
             </table>
         );

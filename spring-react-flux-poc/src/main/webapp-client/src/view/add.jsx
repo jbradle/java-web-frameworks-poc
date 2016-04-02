@@ -1,8 +1,6 @@
 import React from "react";
 import Menu from "../components/Menu.jsx";
-import FrameworkAction from "../flux/actions/frameworkAction.jsx";
 import FrameworkEdit from "../components/FrameworkEdit.jsx";
-
 
 class Add extends React.Component {
 
@@ -13,10 +11,6 @@ class Add extends React.Component {
             categories: []
         };
 
-    }
-
-    componentDidMount() {
-        FrameworkAction.showEdit(this.state.framework);
     }
 
     render() {

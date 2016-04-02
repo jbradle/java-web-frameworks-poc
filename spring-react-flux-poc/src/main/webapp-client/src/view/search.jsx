@@ -10,7 +10,9 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            frameworks: []
+            frameworks: [],
+            showDetail: false,
+            showEdit: false
         };
     }
 
@@ -35,7 +37,6 @@ class Home extends React.Component {
         return (
             <div className="row">
                 <Menu  {...{active : 3}}/>
-
                 <div className="col-md-8">
                     <div className="well">
                         <form>

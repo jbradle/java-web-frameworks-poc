@@ -3,20 +3,16 @@ import FrameworkAction from "../flux/actions/frameworkAction.jsx";
 
 class FrameworkRow extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     showDetail() {
-        FrameworkAction.showDetail(this.props.framework);
+        FrameworkAction.showDetail(this.framework);
     }
 
     showEdit() {
-        FrameworkAction.showEdit(this.props.framework);
+        FrameworkAction.showEdit(this.framework);
     }
 
     deleteFramework() {
-        FrameworkAction.deleteFramework(this.props.framework);
+        FrameworkAction.deleteFramework(this.framework);
     }
 
     render() {
@@ -31,13 +27,13 @@ class FrameworkRow extends React.Component {
                     </a>
                 </td>
                 <td>
-                    <a title="Detail" onClick={this.showDetail.bind(this)}>
+                    <a title="Detail" onClick={this.showDetail.bind(this.props)}>
                         <i className="fa fa-folder-open fa-2x"/>
                     </a>
-                    <a title="Edit" onClick={this.showEdit.bind(this)}>
+                    <a title="Edit" onClick={this.showEdit.bind(this.props)}>
                         <i className="fa fa-edit fa-2x"/>
                     </a>
-                    <a title="Remove"  onClick={this.deleteFramework.bind(this)}>
+                    <a title="Remove"  onClick={this.deleteFramework.bind(this.props)}>
                         <i className="fa fa-remove fa-2x"/>
                     </a>
                 </td>

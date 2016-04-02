@@ -16,5 +16,5 @@ export default (production) => ({
             }
         }]
     },
-    devtool: !production ? 'eval' : ''
+    devtool: !production ? 'eval-source-map' : ''
 });

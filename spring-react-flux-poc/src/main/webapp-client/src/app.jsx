@@ -6,9 +6,6 @@ import Home from "./view/home.jsx";
 import Add from "./view/add.jsx";
 import Search from "./view/search.jsx";
 
-/*
- Routes
- */
 const routes = (
     <Router history={hashHistory}>
         <Route path='/' component={ Main }>
