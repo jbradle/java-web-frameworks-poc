@@ -21,5 +21,6 @@ class ServletConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/node_modules/**").addResourceLocations("/node_modules/");
+        registry.addResourceHandler("/favicon.ico").addResourceLocations("/favicon.ico");
     }
 }

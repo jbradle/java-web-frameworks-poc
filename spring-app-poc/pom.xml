@@ -16,7 +16,7 @@
     <properties>
         <persistance-api.version>1.0.2</persistance-api.version>
         <javax.transaction.version>1.1</javax.transaction.version>
-        <spring-data.version>1.9.4.RELEASE</spring-data.version>
+        <spring-data.version>1.10.1.RELEASE</spring-data.version>
         <orica.version>1.4.6</orica.version>
         <hibernate.version>5.0.4.Final</hibernate.version>
         <h2.version>1.4.190</h2.version>

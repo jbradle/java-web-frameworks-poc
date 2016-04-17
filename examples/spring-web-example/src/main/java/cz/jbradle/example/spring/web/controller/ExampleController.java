@@ -1,4 +1,4 @@
-package cz.jbradle.example.spring.rest.controller;
+package cz.jbradle.example.spring.web.controller;
 
 import cz.jbradle.example.spring.rest.service.ExampleService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -3,7 +3,6 @@ package cz.jbradle.poc.web.spring.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -29,8 +28,6 @@ class PersistenceConfig {
         factory.setDataSource(dataSource);
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setPackagesToScan("cz.jbradle.poc.web.spring.app.model");
-        factory.afterPropertiesSet();
-        factory.setLoadTimeWeaver(new InstrumentationLoadTimeWeaver());
         return factory;
     }
 }
